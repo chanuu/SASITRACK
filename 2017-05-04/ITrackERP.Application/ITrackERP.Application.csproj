@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EDF5D964-4C0F-4F19-B674-58A38A5E5401}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITrackERP</RootNamespace>
+    <AssemblyName>ITrackERP.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Abp, Version=0.12.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.0.12.0.2\lib\net452\Abp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.AutoMapper, Version=0.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.AutoMapper.0.12.0.0\lib\net452\Abp.AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.Zero, Version=0.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Zero.0.12.0.0\lib\net452\Abp.Zero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.LoggingFacility.3.3.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Concurrent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.5840.25917, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.6\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Albums\AlbumAppService.cs" />
+    <Compile Include="Albums\DTOs\AlbumDto.cs" />
+    <Compile Include="Albums\DTOs\AlbumListDto.cs" />
+    <Compile Include="Albums\DTOs\CreateAlbumDto.cs" />
+    <Compile Include="Albums\DTOs\DeleteAlbumDto.cs" />
+    <Compile Include="Albums\DTOs\EditAlbumDto.cs" />
+    <Compile Include="Albums\IAlbumAppService.cs" />
+    <Compile Include="Asset Disposal Headers\AssetDisposalHeaderAppService.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\AssetDisposalDetailDto.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\AssetDisposalHeaderDto.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\AssetDisposalHeaderListDto.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\CreateAssetDisposalDetailDto.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\CreateAssetDisposalHeaderDto.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\DeleteAssetDisposalDetailDto.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\DeleteAssetDisposalHeaderDto.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\EditAssetDisposalDetailDto.cs" />
+    <Compile Include="Asset Disposal Headers\DTOs\EditAssetDisposalHeaderDto.cs" />
+    <Compile Include="Asset Disposal Headers\IAssetDisposalHeaderAppService.cs" />
+    <Compile Include="Asset Ledgers\AssetLedgerAppService.cs" />
+    <Compile Include="Asset Ledgers\DTOs\AssetLedgerDetailOutputDto.cs" />
+    <Compile Include="Asset Ledgers\DTOs\AssetLedgerListDto.cs" />
+    <Compile Include="Asset Ledgers\DTOs\CreateAssetLedgerDto.cs" />
+    <Compile Include="Asset Ledgers\DTOs\DeleteAssetLedgerDto.cs" />
+    <Compile Include="Asset Ledgers\DTOs\DocNoDto.cs" />
+    <Compile Include="Asset Ledgers\DTOs\EditAssetLedgerDto.cs" />
+    <Compile Include="Asset Ledgers\IAssetLedgerAppService.cs" />
+    <Compile Include="Asset Transfer Headers\AssetTransferHeaderAppService.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\AssetTransferDetailDto.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\AssetTransferHeaderDto.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\AssetTransferHeaderListDto.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\CreateAssetTransferDetailDto.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\CreateAssetTransferHeaderDto.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\DeleteAssetTransferDetailDto.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\DeleteAssetTransferHeaderDto.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\EditAssetTransferDetailDto.cs" />
+    <Compile Include="Asset Transfer Headers\DTOs\EditAssetTransferHeaderDto.cs" />
+    <Compile Include="Asset Transfer Headers\IAssetTransferHeaderAppService.cs" />
+    <Compile Include="Assets\AssetAppService.cs" />
+    <Compile Include="Assets\Dto\AssetDetailOutputDto.cs" />
+    <Compile Include="Assets\Dto\AssetListDto.cs" />
+    <Compile Include="Assets\Dto\AssetSearchInputDto.cs" />
+    <Compile Include="Assets\Dto\AssetUsedByInputDto.cs" />
+    <Compile Include="Assets\Dto\CreateAssetDto.cs" />
+    <Compile Include="Assets\Dto\DeleteAssetDto.cs" />
+    <Compile Include="Assets\Dto\EditAssetDto.cs" />
+    <Compile Include="Assets\IAssetAppService.cs" />
+    <Compile Include="AssetVerificationDetails\AssetVerificationDetailAppService.cs" />
+    <Compile Include="AssetVerificationDetails\DTOs\AssetVerificationDetailDto.cs" />
+    <Compile Include="AssetVerificationDetails\DTOs\CreateAssetVerificationDetailDto.cs" />
+    <Compile Include="AssetVerificationDetails\IAssetVerificationDetailAppService.cs" />
+    <Compile Include="AssetVerificationHeaders\AssetVerificationHeaderAppService.cs" />
+    <Compile Include="AssetVerificationHeaders\DTOs\AssetVerificationHeaderDto.cs" />
+    <Compile Include="AssetVerificationHeaders\DTOs\AssetVerificationHeaderListDto.cs" />
+    <Compile Include="AssetVerificationHeaders\DTOs\CreateAssetVerificationHeaderDto.cs" />
+    <Compile Include="AssetVerificationHeaders\DTOs\EditAssetVerificationHeaderDto.cs" />
+    <Compile Include="AssetVerificationHeaders\IAssetVerificationHeaderAppService.cs" />
+    <Compile Include="Attatchments\AttatchmentDetailAppService.cs" />
+    <Compile Include="Attatchments\DTOs\Attatchment.cs" />
+    <Compile Include="Attatchments\DTOs\AttatchmentDetailDto.cs" />
+    <Compile Include="Attatchments\DTOs\CreateAttatchmentDetailDto.cs" />
+    <Compile Include="Attatchments\DTOs\DeleteAttatchmentDetailDto.cs" />
+    <Compile Include="Attatchments\DTOs\EditAttatchmentDetailDto.cs" />
+    <Compile Include="Attatchments\IAttatchmentDetailAppService.cs" />
+    <Compile Include="Awards\AwardAppService.cs" />
+    <Compile Include="Awards\DTOs\AwardDto.cs" />
+    <Compile Include="Awards\DTOs\AwardListDto.cs" />
+    <Compile Include="Awards\DTOs\CreateAwardDto.cs" />
+    <Compile Include="Awards\DTOs\DeleteAwardDto.cs" />
+    <Compile Include="Awards\DTOs\EditAwardDto.cs" />
+    <Compile Include="Awards\IAwardAppService.cs" />
+    <Compile Include="Buyer\BuyerAppService.cs" />
+    <Compile Include="Buyer\Dto\BuyerListDto.cs" />
+    <Compile Include="Buyer\Dto\BuyerProfileDetailsOutputDto.cs" />
+    <Compile Include="Buyer\Dto\CreateBuyerProfileInputDto.cs" />
+    <Compile Include="Buyer\IBuyerAppService.cs" />
+    <Compile Include="CategorySetups\CategorySetupAppService.cs" />
+    <Compile Include="CategorySetups\DTOs\CategoryNameInputDto.cs" />
+    <Compile Include="CategorySetups\DTOs\CategorySetupDto.cs" />
+    <Compile Include="CategorySetups\DTOs\CategorySetupListDto.cs" />
+    <Compile Include="CategorySetups\DTOs\CategoryTypeInputDto.cs" />
+    <Compile Include="CategorySetups\DTOs\CreateCategorySetupDto.cs" />
+    <Compile Include="CategorySetups\DTOs\DeleteCategorySetupDto.cs" />
+    <Compile Include="CategorySetups\DTOs\EditCategorySetupDto.cs" />
+    <Compile Include="CategorySetups\ICategorySetupAppService.cs" />
+    <Compile Include="CustomeFiledSetup\CustomeFieldSetupAppService.cs" />
+    <Compile Include="CustomeFiledSetup\Dto\CreateCustomeFieldSetupInputDto.cs" />
+    <Compile Include="CustomeFiledSetup\Dto\CustomeFieldItemTypeInputDto.cs" />
+    <Compile Include="CustomeFiledSetup\Dto\CustomeFieldSetupDetailDto.cs" />
+    <Compile Include="CustomeFiledSetup\Dto\CustomeFieldSetupListDto.cs" />
+    <Compile Include="CustomeFiledSetup\Dto\DeleteCustomFieldSetupDto.cs" />
+    <Compile Include="CustomeFiledSetup\Dto\EditCustomeFieldSetupDto.cs" />
+    <Compile Include="CustomeFiledSetup\ICustomeFieldSetupAppService.cs" />
+    <Compile Include="CutPlan\CutPlanAppService.cs" />
+    <Compile Include="CutPlan\Dto\CreateCutPlanInputDto.cs" />
+    <Compile Include="CutPlan\Dto\CutPlanDto.cs" />
+    <Compile Include="CutPlan\Dto\EventDetailOutputCutPlan.cs" />
+    <Compile Include="CutPlan\ICutPlanAppService.cs" />
+    <Compile Include="CuttingMasters\CuttingMasterAppService.cs" />
+    <Compile Include="CuttingMasters\Dto\createCuttingItemDto.cs" />
+    <Compile Include="CuttingMasters\Dto\CreateCuttingMasterDto.cs" />
+    <Compile Include="CuttingMasters\Dto\CuttingItemDto.cs" />
+    <Compile Include="CuttingMasters\Dto\CuttingItemListDto.cs" />
+    <Compile Include="CuttingMasters\Dto\CuttingMasterDto.cs" />
+    <Compile Include="CuttingMasters\Dto\CuttingSummaryDto.cs" />
+    <Compile Include="CuttingMasters\Dto\CuttingSummaryViewModel.cs" />
+    <Compile Include="CuttingMasters\Dto\EditCuttingItemDto.cs" />
+    <Compile Include="CuttingMasters\Dto\EditCuttingMasterDto.cs" />
+    <Compile Include="CuttingMasters\ICuttingMasterAppService.cs" />
+    <Compile Include="CuttingRatios\CuttingRatioAppService.cs" />
+    <Compile Include="CuttingRatios\Dto\CreateCuttingItemDto.cs" />
+    <Compile Include="CuttingRatios\Dto\CreateCuttingRatioDto.cs" />
+    <Compile Include="CuttingRatios\Dto\createRatioItem.cs" />
+    <Compile Include="CuttingRatios\Dto\CuttingRatioDetailsDto.cs" />
+    <Compile Include="CuttingRatios\Dto\CuttingRatioItemDto.cs" />
+    <Compile Include="CuttingRatios\Dto\CuttingRatioList.cs" />
+    <Compile Include="CuttingRatios\ICuttingRatio.cs" />
+    <Compile Include="DailyPlanHeaders\DailyPlanHeaderAppService.cs" />
+    <Compile Include="DailyPlanHeaders\DTOs\CreateDailyPlanHeaderDto.cs" />
+    <Compile Include="DailyPlanHeaders\DTOs\DailyPlanHeaderDto.cs" />
+    <Compile Include="DailyPlanHeaders\DTOs\DailyPlanHeaderListDto.cs" />
+    <Compile Include="DailyPlanHeaders\DTOs\DeleteDailyPlanHeaderDto.cs" />
+    <Compile Include="DailyPlanHeaders\DTOs\EditDailyPlanHeaderDto.cs" />
+    <Compile Include="DailyPlanHeaders\IDailyPlanHeaderAppService.cs" />
+    <Compile Include="DailyPlanItems\DailyPlanItemAppService.cs" />
+    <Compile Include="DailyPlanItems\DTOs\CreateDailyPlanItemDto.cs" />
+    <Compile Include="DailyPlanItems\DTOs\DailyPlanItemDto.cs" />
+    <Compile Include="DailyPlanItems\DTOs\DailyPlanItemListDto.cs" />
+    <Compile Include="DailyPlanItems\DTOs\DeleteDailyPlanItemDto.cs" />
+    <Compile Include="DailyPlanItems\DTOs\EditDailyPlanItemDto.cs" />
+    <Compile Include="DailyPlanItems\IDailyPlanItemAppService.cs" />
+    <Compile Include="Departments\DepartmentAppService.cs" />
+    <Compile Include="Departments\DTOs\CreateDepartmentDto.cs" />
+    <Compile Include="Departments\DTOs\DeleteDepartmentDto.cs" />
+    <Compile Include="Departments\DTOs\DepartmentDto.cs" />
+    <Compile Include="Departments\DTOs\EditDepartmentDto.cs" />
+    <Compile Include="Departments\DTOs\LineNoInputDto.cs" />
+    <Compile Include="Departments\IDepartmentAppService.cs" />
+    <Compile Include="ElasticDetails\DTOs\CreateElasticDetailDto.cs" />
+    <Compile Include="ElasticDetails\DTOs\DeleteElasticDetailDto.cs" />
+    <Compile Include="ElasticDetails\DTOs\EditElasticDetailDto.cs" />
+    <Compile Include="ElasticDetails\DTOs\ElasticDetailListDto.cs" />
+    <Compile Include="ElasticDetails\ElasticDetailAppService.cs" />
+    <Compile Include="ElasticDetails\IElasticDetailAppService.cs" />
+    <Compile Include="Elements\DTOs\CategoryInputDto.cs" />
+    <Compile Include="Elements\DTOs\CreateElementDto.cs" />
+    <Compile Include="Elements\DTOs\DeleteElementDto.cs" />
+    <Compile Include="Elements\DTOs\EditElementDto.cs" />
+    <Compile Include="Elements\DTOs\ElementDto.cs" />
+    <Compile Include="Elements\ElementAppService.cs" />
+    <Compile Include="Elements\IElementAppService.cs" />
+    <Compile Include="EmployeeMaster\Dto\CreateEmployeeMasterInputDto.cs" />
+    <Compile Include="EmployeeMaster\Dto\EmployeeListDto.cs" />
+    <Compile Include="EmployeeMaster\Dto\EmployeeMasterDetailOutput.cs" />
+    <Compile Include="EmployeeMaster\EmployeeMasterAppService.cs" />
+    <Compile Include="EmployeeMaster\IEmployeeMasterAppService.cs" />
+    <Compile Include="Employees\DTOs\CreateEmployeeDto.cs" />
+    <Compile Include="Employees\DTOs\DeleteEmployeeDto.cs" />
+    <Compile Include="Employees\DTOs\EditEmployeeDto.cs" />
+    <Compile Include="Employees\DTOs\EmployeeDto.cs" />
+    <Compile Include="Employees\DTOs\EmployeeFullNameInputDto.cs" />
+    <Compile Include="Employees\DTOs\EmployeeListDto.cs" />
+    <Compile Include="Employees\EmployeeAppService.cs" />
+    <Compile Include="Employees\IEmployeeAppService.cs" />
+    <Compile Include="EstimateConsumptions\Dto\CreateEstimateConsumptionDto.cs" />
+    <Compile Include="EstimateConsumptions\Dto\EstimateConsumptionDto.cs" />
+    <Compile Include="EstimateConsumptions\Dto\EstimateConsumptionListDto.cs" />
+    <Compile Include="EstimateConsumptions\Dto\EventDetailEstimateConsumptionDto.cs" />
+    <Compile Include="EstimateConsumptions\EstimateConsumptionAppService.cs" />
+    <Compile Include="EstimateConsumptions\IEstimateConsumptionAppService.cs" />
+    <Compile Include="EventHeaders\DTOs\CreateEventHeaderDto.cs" />
+    <Compile Include="EventHeaders\DTOs\DeleteEventHeaderDto.cs" />
+    <Compile Include="EventHeaders\DTOs\EditEventHeaderDto.cs" />
+    <Compile Include="EventHeaders\DTOs\EventHeaderDto.cs" />
+    <Compile Include="EventHeaders\DTOs\EventHeaderListDto.cs" />
+    <Compile Include="EventHeaders\EventHeaderAppService.cs" />
+    <Compile Include="EventHeaders\IEventHeaderAppService.cs" />
+    <Compile Include="FabricDetails\DTOs\CreateFabricDetailDto.cs" />
+    <Compile Include="FabricDetails\DTOs\DeleteFabricDetailDto.cs" />
+    <Compile Include="FabricDetails\DTOs\EditFabricDetailDto.cs" />
+    <Compile Include="FabricDetails\DTOs\FabricDetailListDto.cs" />
+    <Compile Include="FabricDetails\FabricDetailAppService.cs" />
+    <Compile Include="FabricDetails\IFabricDetailAppService.cs" />
+    <Compile Include="Files1\DTOs\CreateFileDto.cs" />
+    <Compile Include="Files1\DTOs\DeleteFileDto.cs" />
+    <Compile Include="Files1\DTOs\EditFileDto.cs" />
+    <Compile Include="Files1\DTOs\FileDto.cs" />
+    <Compile Include="Files1\DTOs\FileListDto.cs" />
+    <Compile Include="Files1\DTOs\FileTypeInputDto.cs" />
+    <Compile Include="Files1\FileAppService.cs" />
+    <Compile Include="Files1\IFileAppService.cs" />
+    <Compile Include="FolderDetails\DTOs\CreateFolderDetailDto.cs" />
+    <Compile Include="FolderDetails\DTOs\DeleteFolderDetailDto.cs" />
+    <Compile Include="FolderDetails\DTOs\EditFolderDetailDto.cs" />
+    <Compile Include="FolderDetails\DTOs\FolderDetailDto.cs" />
+    <Compile Include="FolderDetails\FolderDetailAppService.cs" />
+    <Compile Include="FolderDetails\IFolderDetailAppService.cs" />
+    <Compile Include="FootDetails\DTOs\CreateFootDetailDto.cs" />
+    <Compile Include="FootDetails\DTOs\DeleteFootDetailDto.cs" />
+    <Compile Include="FootDetails\DTOs\EditFootDetailDto.cs" />
+    <Compile Include="FootDetails\DTOs\FootDetailDto.cs" />
+    <Compile Include="FootDetails\FootDetailAppService.cs" />
+    <Compile Include="FootDetails\IFootDetailAppService.cs" />
+    <Compile Include="Invitees\DTOs\CreateInviteeDto.cs" />
+    <Compile Include="Invitees\DTOs\DeleteInviteeDto.cs" />
+    <Compile Include="Invitees\DTOs\EditInviteeDto.cs" />
+    <Compile Include="Invitees\DTOs\InviteeDto.cs" />
+    <Compile Include="Invitees\DTOs\InviteeListDto.cs" />
+    <Compile Include="Invitees\IInviteeAppService.cs" />
+    <Compile Include="Invitees\InviteeAppService.cs" />
+    <Compile Include="IssueNoteHeaders\DTOs\CreateIssueNoteHeaderDto.cs" />
+    <Compile Include="IssueNoteHeaders\DTOs\DeleteIssueNoteHeaderDto.cs" />
+    <Compile Include="IssueNoteHeaders\DTOs\EditIssueNoteHeaderDto.cs" />
+    <Compile Include="IssueNoteHeaders\DTOs\IssueNoteHeaderDto.cs" />
+    <Compile Include="IssueNoteHeaders\DTOs\IssueNoteHeaderListDto.cs" />
+    <Compile Include="IssueNoteHeaders\IIssueNoteHeaderAppService.cs" />
+    <Compile Include="IssueNoteHeaders\IssueNoteHeaderAppService.cs" />
+    <Compile Include="IssueNoteItems\DTOs\CreateIssueNoteItemDto.cs" />
+    <Compile Include="IssueNoteItems\DTOs\DeleteIssueNoteItemDto.cs" />
+    <Compile Include="IssueNoteItems\DTOs\EditIssueNoteItemDto.cs" />
+    <Compile Include="IssueNoteItems\DTOs\IssueNoteItemDto.cs" />
+    <Compile Include="IssueNoteItems\IIssueNoteItemAppService.cs" />
+    <Compile Include="IssueNoteItems\IssueNoteItemAppService.cs" />
+    <Compile Include="ItemMaster\Dto\CreateItemMasterInputDto.cs" />
+    <Compile Include="ItemMaster\Dto\DeleteItemMasterInputDto.cs" />
+    <Compile Include="ItemMaster\Dto\EditItemMasterInputDto.cs" />
+    <Compile Include="ItemMaster\Dto\ItemCodeInputDto.cs" />
+    <Compile Include="ItemMaster\Dto\ItemMasterDetailOutputDto.cs" />
+    <Compile Include="ItemMaster\Dto\ItemMasterListDto.cs" />
+    <Compile Include="ItemMaster\IItemMasterAppService.cs" />
+    <Compile Include="ItemMaster\ItemMasterAppService.cs" />
+    <Compile Include="ITrackERPApplicationModule.cs" />
+    <Compile Include="ITrackERPAppServiceBase.cs" />
+    <Compile Include="JobCardHeaders\DTOs\CreateJobCardHeaderDto.cs" />
+    <Compile Include="JobCardHeaders\DTOs\DeleteJobCardHeaderDto.cs" />
+    <Compile Include="JobCardHeaders\DTOs\EditJobCardHeaderDto.cs" />
+    <Compile Include="JobCardHeaders\DTOs\JobCardHeaderDto.cs" />
+    <Compile Include="JobCardHeaders\DTOs\JobCardHeaderInputDto.cs" />
+    <Compile Include="JobCardHeaders\DTOs\JobCardHeaderListDto.cs" />
+    <Compile Include="JobCardHeaders\IJobCardHeaderAppService.cs" />
+    <Compile Include="JobCardHeaders\JobCardHeaderAppService.cs" />
+    <Compile Include="JobCardItems\DTOs\CreateJobCardItemDto.cs" />
+    <Compile Include="JobCardItems\DTOs\DeleteJobCardItemDto.cs" />
+    <Compile Include="JobCardItems\DTOs\EditJobCardItemDto.cs" />
+    <Compile Include="JobCardItems\DTOs\JobCardItemDto.cs" />
+    <Compile Include="JobCardItems\DTOs\JobCardItemListDto.cs" />
+    <Compile Include="JobCardItems\IJobCardItemAppService.cs" />
+    <Compile Include="JobCardItems\JobCardItemAppService.cs" />
+    <Compile Include="LayoutHeaders\DTOs\CreateLayoutHeaderDto.cs" />
+    <Compile Include="LayoutHeaders\DTOs\DeleteLayoutHeaderDto.cs" />
+    <Compile Include="LayoutHeaders\DTOs\DividingPlanHeaderIdInputDto.cs" />
+    <Compile Include="LayoutHeaders\DTOs\EditLayoutHeaderDto.cs" />
+    <Compile Include="LayoutHeaders\DTOs\LayoutHeaderDto.cs" />
+    <Compile Include="LayoutHeaders\DTOs\LayoutHeaderListDto.cs" />
+    <Compile Include="LayoutHeaders\ILayoutHeaderAppService.cs" />
+    <Compile Include="LayoutHeaders\LayoutHeaderAppService.cs" />
+    <Compile Include="LayoutItems\DTOs\CreateLayoutItemDto.cs" />
+    <Compile Include="LayoutItems\DTOs\DeleteLayoutItemDto.cs" />
+    <Compile Include="LayoutItems\DTOs\EditLayoutItemDto.cs" />
+    <Compile Include="LayoutItems\DTOs\LayoutItemDto.cs" />
+    <Compile Include="LayoutItems\ILayoutItemAppService.cs" />
+    <Compile Include="LayoutItems\LayoutItemAppService.cs" />
+    <Compile Include="MachineRequirements\DTOs\CreateMachineRequirementDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\CreateMachineRequirementItemDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\DeleteMachineRequirementDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\DeleteMachineRequirementItemDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\EditMachineRequirementDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\EditMachineRequirementItemDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\MachineRequirementDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\MachineRequirementIdInputDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\MachineRequirementItemDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\MachineRequirementItemListDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\MachineRequirementListDto.cs" />
+    <Compile Include="MachineRequirements\DTOs\MachineRequrementItemByStyleDto.cs" />
+    <Compile Include="MachineRequirements\IMachineRequirementAppService.cs" />
+    <Compile Include="MachineRequirements\MachineRequirementAppService.cs" />
+    <Compile Include="MachineTypes\DTOs\CreateMachineTypeDto.cs" />
+    <Compile Include="MachineTypes\DTOs\DeleteMachineTypeDto.cs" />
+    <Compile Include="MachineTypes\DTOs\EditMachineTypeDto.cs" />
+    <Compile Include="MachineTypes\DTOs\MachineTypeDetailOutputDto.cs" />
+    <Compile Include="MachineTypes\DTOs\MachineTypeListDto.cs" />
+    <Compile Include="MachineTypes\IMachineTypeAppService.cs" />
+    <Compile Include="MachineTypes\MachineTypeAppService.cs" />
+    <Compile Include="MultiTenancy\Dto\CreateTenantInput.cs" />
+    <Compile Include="MultiTenancy\ITenantAppService.cs" />
+    <Compile Include="MultiTenancy\Dto\TenantListDto.cs" />
+    <Compile Include="MultiTenancy\TenantAppService.cs" />
+    <Compile Include="NeedleDetails\DTOs\CreateNeedleDetailDto.cs" />
+    <Compile Include="NeedleDetails\DTOs\DeleteNeedleDetailDto.cs" />
+    <Compile Include="NeedleDetails\DTOs\EditNeedleDetailDto.cs" />
+    <Compile Include="NeedleDetails\DTOs\NeedleDetailDto.cs" />
+    <Compile Include="NeedleDetails\INeedleDetailAppService.cs" />
+    <Compile Include="NeedleDetails\NeedleDetailAppService.cs" />
+    <Compile Include="Operations\DTOs\CreateOperationPoolDto.cs" />
+    <Compile Include="Operations\DTOs\DeleteOperationPoolDto.cs" />
+    <Compile Include="Operations\DTOs\EditOperationPoolDto.cs" />
+    <Compile Include="Operations\DTOs\OperationPoolDto.cs" />
+    <Compile Include="Operations\DTOs\OperationPoolListDto.cs" />
+    <Compile Include="Operations\IOperationPoolAppService.cs" />
+    <Compile Include="Operations\OperationPoolAppService.cs" />
+    <Compile Include="Orders\Dto\CreateWorkOrderDto.cs" />
+    <Compile Include="Orders\Dto\createWorkorderItemsDto.cs" />
+    <Compile Include="Orders\Dto\EditWorkorderDto.cs" />
+    <Compile Include="Orders\Dto\GetOrderQtyByStyle.cs" />
+    <Compile Include="Orders\Dto\WorkOrderDtailsDto.cs" />
+    <Compile Include="Orders\Dto\WorkOrderRatioDto.cs" />
+    <Compile Include="Orders\IWorkorderRatioAppService.cs" />
+    <Compile Include="Orders\WorkOrderAppService.cs" />
+    <Compile Include="Orders\Dto\WorkOrderDto.cs" />
+    <Compile Include="Orders\IWorkOrderAppService.cs" />
+    <Compile Include="Orders\WorkorderRatioAppService.cs" />
+    <Compile Include="PastEmployeements\DTOs\CreatePastEmployeementDto.cs" />
+    <Compile Include="PastEmployeements\DTOs\DeletePastEmployeementDto.cs" />
+    <Compile Include="PastEmployeements\DTOs\EditPastEmployeementDto.cs" />
+    <Compile Include="PastEmployeements\DTOs\PastEmployeementDto.cs" />
+    <Compile Include="PastEmployeements\DTOs\PastEmployeementListDto.cs" />
+    <Compile Include="PastEmployeements\IPastEmployeementAppService.cs" />
+    <Compile Include="PastEmployeements\PastEmployeementAppService.cs" />
+    <Compile Include="Productions\DTOs\ProductionSummaryDto.cs" />
+    <Compile Include="Productions\IProductionAppService.cs" />
+    <Compile Include="Productions\ProductionAppService.cs" />
+    <Compile Include="Promotions\DTOs\CreatePromotionDto.cs" />
+    <Compile Include="Promotions\DTOs\DeletePromotionDto.cs" />
+    <Compile Include="Promotions\DTOs\EditPromotionDto.cs" />
+    <Compile Include="Promotions\DTOs\PromotionDto.cs" />
+    <Compile Include="Promotions\DTOs\PromotionListDto.cs" />
+    <Compile Include="Promotions\IPromotionAppService.cs" />
+    <Compile Include="Promotions\PromotionAppService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceiveNoteItems\DTOs\CreateReceiveNoteItemDto.cs" />
+    <Compile Include="ReceiveNoteItems\DTOs\DeleteReceiveNoteItemDto.cs" />
+    <Compile Include="ReceiveNoteItems\DTOs\EditReceiveNoteItemDto.cs" />
+    <Compile Include="ReceiveNoteItems\DTOs\ReceiveNoteItemDto.cs" />
+    <Compile Include="ReceiveNoteItems\DTOs\ReceiveNoteItemListDto.cs" />
+    <Compile Include="ReceiveNoteItems\IReceiveNoteItemAppService.cs" />
+    <Compile Include="ReceiveNoteItems\ReceiveNoteItemAppService.cs" />
+    <Compile Include="Rent Machines\DTOs\CreateRentMachineDto.cs" />
+    <Compile Include="Rent Machines\DTOs\DeleteRentMachineDto.cs" />
+    <Compile Include="Rent Machines\DTOs\EditRentMachineDto.cs" />
+    <Compile Include="Rent Machines\DTOs\RentMachineDetailOutputDto.cs" />
+    <Compile Include="Rent Machines\DTOs\RentMachineListDto.cs" />
+    <Compile Include="Rent Machines\IRentMachineAppService.cs" />
+    <Compile Include="Rent Machines\RentMachineAppService.cs" />
+    <Compile Include="Roles\IRoleAppService.cs" />
+    <Compile Include="Roles\Dto\UpdateRolePermissionsInput.cs" />
+    <Compile Include="SerialItems\DTOs\CreateSerialItemDto.cs" />
+    <Compile Include="SerialItems\DTOs\DeleteSerialItemDto.cs" />
+    <Compile Include="SerialItems\DTOs\EditSerialItemDto.cs" />
+    <Compile Include="SerialItems\DTOs\GetSerialItemByItemCodeInputDto.cs" />
+    <Compile Include="SerialItems\DTOs\SerialItemDto.cs" />
+    <Compile Include="SerialItems\DTOs\SerialItemListDto.cs" />
+    <Compile Include="SerialItems\DTOs\SerialNoInputDto.cs" />
+    <Compile Include="SerialItems\ISerialItemAppService.cs" />
+    <Compile Include="SerialItems\SerialItemAppService.cs" />
+    <Compile Include="SewingThreadAndNeedleDetails\DTOs\CreateSewingThreadAndNeedleDetailDto.cs" />
+    <Compile Include="SewingThreadAndNeedleDetails\DTOs\DeleteSewingThreadAndNeedleDetailDto.cs" />
+    <Compile Include="SewingThreadAndNeedleDetails\DTOs\EditSewingThreadAndNeedleDetailDto.cs" />
+    <Compile Include="SewingThreadAndNeedleDetails\DTOs\SewingThreadAndNeedleDetailListDto.cs" />
+    <Compile Include="SewingThreadAndNeedleDetails\ISewingThreadAndNeedleDetailAppService.cs" />
+    <Compile Include="SewingThreadAndNeedleDetails\SewingThreadAndNeedleDetailAppService.cs" />
+    <Compile Include="StockLedgers\DTOs\CreateStockLedgerDto.cs" />
+    <Compile Include="StockLedgers\DTOs\CurrentStockDetailDto.cs" />
+    <Compile Include="StockLedgers\DTOs\DeleteStockLedgerDto.cs" />
+    <Compile Include="StockLedgers\DTOs\DocNoDto.cs" />
+    <Compile Include="StockLedgers\DTOs\EditStockLedgerDto.cs" />
+    <Compile Include="StockLedgers\DTOs\StockLedgerDto.cs" />
+    <Compile Include="StockLedgers\IStockLedgerAppService.cs" />
+    <Compile Include="StockLedgers\StockLedgerAppService.cs" />
+    <Compile Include="StockReceiveHeaders\DTOs\CreateStockReceiveHeaderDto.cs" />
+    <Compile Include="StockReceiveHeaders\DTOs\DeleteStockReceiveHeaderDto.cs" />
+    <Compile Include="StockReceiveHeaders\DTOs\EditStockReceiveHeaderDto.cs" />
+    <Compile Include="StockReceiveHeaders\DTOs\StockReceiveHeaderDto.cs" />
+    <Compile Include="StockReceiveHeaders\DTOs\StockReceiveHeaderListDto.cs" />
+    <Compile Include="StockReceiveHeaders\IStockReceiveHeaderAppService.cs" />
+    <Compile Include="StockReceiveHeaders\StockReceiveHeaderAppService.cs" />
+    <Compile Include="Styles\Dto\CreateStyleInputDto.cs" />
+    <Compile Include="Styles\Dto\DeleteStyleInput.cs" />
+    <Compile Include="Styles\Dto\EditStyleInput.cs" />
+    <Compile Include="Styles\Dto\EventDetailOutput.cs" />
+    <Compile Include="Styles\Dto\StyleListDto.cs" />
+    <Compile Include="Styles\IStyleAppService.cs" />
+    <Compile Include="Styles\StyleAppService.cs" />
+    <Compile Include="TAW\DividingPlanHeaderAppService.cs" />
+    <Compile Include="TAW\DTOs\CreateDividingPlanHeaderDto.cs" />
+    <Compile Include="TAW\DTOs\CreateDividingPlanItemDto.cs" />
+    <Compile Include="TAW\DTOs\DeleteDividingPlanHeaderDto.cs" />
+    <Compile Include="TAW\DTOs\DeleteDividingPlanItemDto.cs" />
+    <Compile Include="TAW\DTOs\DividingPlanHeaderDto.cs" />
+    <Compile Include="TAW\DTOs\DividingPlanHeaderListDto.cs" />
+    <Compile Include="TAW\DTOs\DividingPlanItemDto.cs" />
+    <Compile Include="TAW\DTOs\EditDividingPlanHeaderDto.cs" />
+    <Compile Include="TAW\DTOs\EditDividingPlanItemDto.cs" />
+    <Compile Include="TAW\IDividingPlanHeaderAppService.cs" />
+    <Compile Include="ThreadDetails\DTOs\CreateThreadDetailDto.cs" />
+    <Compile Include="ThreadDetails\DTOs\DeleteThreadDetailDto.cs" />
+    <Compile Include="ThreadDetails\DTOs\EditThreadDetailDto.cs" />
+    <Compile Include="ThreadDetails\DTOs\ThreadDetailDto.cs" />
+    <Compile Include="ThreadDetails\IThreadDetailAppService.cs" />
+    <Compile Include="ThreadDetails\ThreadDetailAppService.cs" />
+    <Compile Include="Users\Dto\CreateUserInput.cs" />
+    <Compile Include="Users\IUserAppService.cs" />
+    <Compile Include="Roles\RoleAppService.cs" />
+    <Compile Include="Sessions\Dto\GetCurrentLoginInformationsOutput.cs" />
+    <Compile Include="Sessions\Dto\TenantLoginInfoDto.cs" />
+    <Compile Include="Sessions\Dto\UserLoginInfoDto.cs" />
+    <Compile Include="Sessions\ISessionAppService.cs" />
+    <Compile Include="Sessions\SessionAppService.cs" />
+    <Compile Include="Users\Dto\ProhibitPermissionInput.cs" />
+    <Compile Include="Users\UserAppService.cs" />
+    <Compile Include="Users\Dto\UserListDto.cs" />
+    <Compile Include="WorkCycleImages\DTOs\CreateWorkCycleImageDto.cs" />
+    <Compile Include="WorkCycleImages\DTOs\DeleteWorkCycleImageDto.cs" />
+    <Compile Include="WorkCycleImages\DTOs\EditWorkCycleImageDto.cs" />
+    <Compile Include="WorkCycleImages\DTOs\WorkCycleImageDto.cs" />
+    <Compile Include="WorkCycleImages\IWorkCycleImageAppService.cs" />
+    <Compile Include="WorkCycleImages\WorkCycleImageAppService.cs" />
+    <Compile Include="WorkCycleVideos\DTOs\CreateWorkCycleVideoDto.cs" />
+    <Compile Include="WorkCycleVideos\DTOs\DeleteWorkCycleVideoDto.cs" />
+    <Compile Include="WorkCycleVideos\DTOs\EditWorkCycleVideoDto.cs" />
+    <Compile Include="WorkCycleVideos\DTOs\WorkCycleVideoDto.cs" />
+    <Compile Include="WorkCycleVideos\IWorkCycleVideoAppService.cs" />
+    <Compile Include="WorkCycleVideos\WorkCycleVideoAppService.cs" />
+    <Compile Include="ZipperDetails\DTOs\CreateZipperDetailDto.cs" />
+    <Compile Include="ZipperDetails\DTOs\DeleteZipperDetailDto.cs" />
+    <Compile Include="ZipperDetails\DTOs\EditZipperDetailDto.cs" />
+    <Compile Include="ZipperDetails\DTOs\ZipperDetailListDto.cs" />
+    <Compile Include="ZipperDetails\IZipperDetailAppService.cs" />
+    <Compile Include="ZipperDetails\ZipperDetailAppService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="MachineTypes\0ylu00td.qm3" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITrackERP.Core\ITrackERP.Core.csproj">
+      <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
+      <Name>ITrackERP.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

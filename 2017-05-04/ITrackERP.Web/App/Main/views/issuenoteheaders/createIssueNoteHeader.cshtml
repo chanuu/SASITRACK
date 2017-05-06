@@ -1,0 +1,81 @@
+﻿
+<div id="issuenoteheader">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="issuenoteheaderCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <!--  <h3 class="block">{{}} Details </h3>-->
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Issue To</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setLineNo($item)" ng-model="selectedLineNo" uib-typeahead="department as department.name for department in vm.departments | filter:$viewValue | limitTo:8" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Style No</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setStyle($item)" ng-model="selectedStyle" uib-typeahead="style as style.styleNo for style in vm.styles | filter:$viewValue | limitTo:8" class="form-control">
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Issue Type</label>
+
+                    <div class="controls">
+                        <select class="form-control" name="type" ng-model="vm.issuenoteheader.issueType" required>
+                            <option value="H-Tech">H-Tech</option>
+                            <option value="Production">Production</option>
+                        </select>
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Remark </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.issuenoteheader.remark" name="remark" ng-maxlength="100" ng-messages="issuenoteheaderCreateForm.remark.$error" />
+
+                        <div ng-messages="issuenoteheaderCreateForm.remark.$error" ng-if="issuenoteheaderCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

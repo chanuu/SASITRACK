@@ -1,0 +1,103 @@
+﻿<div id="categoryDetail" ng-controller="app.views.categories.update as vm">
+    <route-loading-indicator></route-loading-indicator>
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+                <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                <a class="closebox"><i class="fa fa-times"></i></a>
+            </div>
+            Categories
+        </div>
+
+        <div uib-collapse="isCollapsed" class="panel-body">
+
+
+            <h3 class="block">{{vm.category.name}} Details</h3>
+
+
+            <div class="panel-body">
+
+                <form name="categoryUpdateForm" role="form" novalidate class="form-validation">
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Type</label>
+                            <div class="controls">
+                                <select class="form-control" name="type" ng-model="vm.category.type" required>
+                                    <option value="Document">Document</option>
+                                </select>
+                                <span class="help-inline"></span>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Name</label>
+                            <div class="controls">
+                                <input name="itemType" type="text" ng-model="selectedItemType" uib-typeahead="custom as custom.itemType for custom in vm.customfieldsetups | filter:$viewValue | limitTo:8" class="form-control" required>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                                          
+                    </div>
+                    <div class="row margin">
+                     
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Level No</label>
+                            <div class="controls">
+                                <select class="form-control" name="type" ng-model="vm.category.levelNo" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <span class="help-inline"></span>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Category Name </label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.category.categoryName" name="categoryName" ng-messages="categoryUpdateForm.categoryName.$error" required/>
+
+                                <div ng-messages="categoryUpdateForm.categoryName.$error" ng-if="categoryUpdateForm.categoryName.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                    <div class ="row margin">
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Remark</label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.category.remark" name="remark" ng-maxlength="100" ng-messages="categoryUpdateForm.remark.$error" />
+
+                                <div ng-messages="categoryUpdateForm.remark.$error" ng-if="categoryUpdateForm.remark.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+                    <hr />
+                    <div class="event-actions">
+                        <a class="btn btn-primary btn-sm btn-green small-icons" ng-click="vm.update()"><i class="fa fa-arrow-circle-left"></i>Save</a>
+
+                        <a class="btn btn-primary btn-sm btn-blue small-icons" ng-click="vm.backToEventsPage()"><i class="fa fa-arrow-circle-left"></i> back to categories</a>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

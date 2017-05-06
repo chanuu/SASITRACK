@@ -1,0 +1,73 @@
+﻿
+<div id="createCutting">
+
+    <form name="ratioCreateForm" role="form" novalidate class="form-validation">
+
+
+        
+
+        <div class=" margin">
+            <h3 class="block"> Create Cutting Master</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Cutting Master No</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="cuttingMaster.cuttingMasterNo" required />
+
+
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Style No</label>
+                    <div class="controls">
+
+                        <input type="text"  ng-model="selectedStyle" uib-typeahead="style as style.styleNo for style in vm.styles | filter:$viewValue | limitTo:8" class="form-control">
+                      
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+               
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Remark</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="cuttingMaster.remark" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+          
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

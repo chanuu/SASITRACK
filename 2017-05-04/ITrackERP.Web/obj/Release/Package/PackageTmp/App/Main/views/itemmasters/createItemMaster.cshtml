@@ -1,0 +1,229 @@
+﻿
+<div id="createItemMaster">
+
+    <form name="itemmasterCreateForm" role="form" novalidate class="form-validation">
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.itemmaster.itemType}} Details Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+               
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Item Type</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="getCustomFieldsEvent ()" ng-model="selectedItemType" uib-typeahead="custom as custom.itemType for custom in vm.customfieldsetups | filter:$viewValue | limitTo:8" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Item No </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.itemNo" name="itemNo" ng-messages="itemmasterCreateForm.itemNo.$error" required />
+
+                        <div ng-messages="itemmasterCreateForm.itemNo.$error" ng-if="itemmasterCreateForm.itemNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption1}} </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.customField1" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption2}} </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.customField2"/>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption3}} </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.customField3" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption4}}</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.customField4" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption5}}</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.customField5" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption6}}</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.customField6" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Supplier</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.supplier" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">MaxQty  </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.maxQty" name="maxQty" ng-messages="itemmasterCreateForm.maxQty.$error" />
+
+                        <div ng-messages="itemmasterCreateForm.maxQty.$error" ng-if="itemmasterCreateForm.maxQty.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Re Order Qty </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.reOrderQty" name="reOrderQty" ng-messages="itemmasterCreateForm.reOrderQty.$error" />
+
+                        <div ng-messages="itemmasterCreateForm.reOrderQty.$error" ng-if="itemmasterCreateForm.reOrderQty.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Minimum Qty </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.minimumQty" name="minimumQty" ng-messages="itemmasterCreateForm.minimumQty.$error"  />
+
+                        <div ng-messages="itemmasterCreateForm.minimumQty.$error" ng-if="itemmasterCreateForm.minimumQty.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Batch Item </label>
+                    <div class="controls">
+                        <input type="checkbox"  ng-model="vm.itemmaster.batchItem" ng-true-value='true' ng-false-value='false' />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Service Item </label>
+                    <div class="controls">
+                        <input type="checkbox"  ng-model="vm.itemmaster.serviceItem" ng-true-value='true' ng-false-value='false' />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Show In Front End </label>
+                    <div class="controls">
+                        <input type="checkbox"  ng-model="vm.itemmaster.showInFrontEnd " ng-true-value='true' ng-false-value='false' />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Discount </label>
+                    <div class="controls">
+                        <input type="checkbox"  ng-model="vm.itemmaster.discount" ng-true-value='true' ng-false-value='false' />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Customer Return Order </label>
+                    <div class="controls">
+                        <input type="checkbox" ng-model="vm.itemmaster.customerReturnOrder" ng-true-value='true' ng-false-value='false' />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Serial Item </label>
+                    <div class="controls">
+                        <input type="checkbox"  ng-model="vm.itemmaster.serialItem" ng-true-value='true' ng-false-value='false' />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Image </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.itemmaster.image" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

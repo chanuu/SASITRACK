@@ -1,0 +1,152 @@
+﻿
+<div id="customfieldsetup">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="customfieldsetupCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.customfieldsetup.assetNo }} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Custom Field No </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.customFieldNo " name="customFieldNo" ng-messages="customfieldsetupCreateForm.customFieldNo.$error" required />
+
+                        <div ng-messages="customfieldsetupCreateForm.customFieldNo.$error" ng-if="customfieldsetupCreateForm.customFieldNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Item Type </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.itemType" name="itemType" ng-messages="customfieldsetupCreateForm.itemType.$error" required />
+
+                        <div ng-messages="customfieldsetupCreateForm.itemType.$error" ng-if="customfieldsetupCreateForm.itemType.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Custom Field 1 </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.customeField1" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Custom Field 2 </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.customeField2" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Custom Field 3 </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.customeField3" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Custom Field 4 </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.customeField4" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Custom Field 5 </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.customeField5" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Custom Field 6 </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.customeField6" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Code Length  </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.customfieldsetup.codeLength" name="codeLength"/>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Item Code Generate</label>
+                    <div class="controls">
+                        <input type="checkbox" ng-model="vm.customfieldsetup.itemCodeGenerate" ng-true-value='true' ng-false-value='false' />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

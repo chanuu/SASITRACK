@@ -1,0 +1,389 @@
+﻿
+<div id="asset">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="assetCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.asset.assetNo }} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            
+
+
+<uib-tabset active="active">
+
+                <uib-tab index="0">
+                    <uib-tab-heading>
+                        <i class="glyphicon glyphicon-bell"></i> General Details
+                    </uib-tab-heading>
+                    <div class="row margin">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Asset No </label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.asset.assetNo" name="assetNo" ng-messages="assetCreateForm.assetNo.$error" required />
+
+                                <div ng-messages="assetCreateForm.assetNo.$error" ng-if="assetCreateForm.assetNo.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Asset Name </label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.asset.assetName" name="assetName" ng-messages="assetCreateForm.assetName.$error" required />
+
+                                <div ng-messages="assetCreateForm.assetName.$error" ng-if="assetCreateForm.assetName.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Asset Type</label>
+                            <div class="controls">
+                                <input type="text" typeahead-on-select="getCustomFieldsEvent()" ng-model="vm.selectedAssetType" uib-typeahead="custom as custom.itemType for custom in vm.customfieldsetups | filter:$viewValue | limitTo:8" class="form-control" required>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Alternet Asset </label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.asset.alternetAsset" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row margin">
+                       
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Asset Status</label>
+                            <div class="controls">
+                                <select class="form-control" name="type" ng-model="vm.asset.assetStatus" required>
+                                    <option value="Production">Production</option>
+                                    <option value="None Production">None Production</option>
+                                </select>
+                                <span class="help-inline"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Warranty Period</label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.asset.warrantyPeriod" />
+                                <span class="help-inline"></span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row margin">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Purchase Location </label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.asset.purchaseLocation" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Location</label>
+
+                            <div class="controls">
+                                <select class="form-control" name="type" ng-model="vm.asset.location" required>
+                                    <option value="VTW">VTW</option>
+                                    <option value="VTH">VTH</option>
+                                    <option value="VTK">VTK</option>
+                                    <option value="TGZ">TGZ</option>
+                                </select>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                 
+        <div class="row margin">
+            <div class="col-md-6 col-sm-12 margin">
+                <label class="control-label">Asset Used By</label>
+                <div class="controls">
+                    <input type="text" typeahead-on-select="setLineNo($item)" ng-model="vm.selectedLineNo" uib-typeahead="department as department.name for department in vm.departments | filter:$viewValue | limitTo:8" class="form-control">
+                    <span class="help-inline"></span>
+                </div>
+            </div>
+            </div>
+
+
+            </uib-tab>
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="glyphicon glyphicon-bell"></i> Specifications
+                </uib-tab-heading>
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">{{vm.customcaption1}} </label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.customField1  " />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">{{vm.customcaption2}}</label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.customField2  " />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">{{vm.customcaption3}}</label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.customField3" />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">{{vm.customcaption4}}</label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.customField4" />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">{{vm.customcaption5}}</label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.customField5" />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">{{vm.customcaption6}}</label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.customField6" />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                </div>
+
+            </uib-tab>
+            <uib-tab>
+                <uib-tab-heading>
+                    <i class="glyphicon glyphicon-bell"></i> Categories
+
+                </uib-tab-heading>
+
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Category 01 </label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.category01 " />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Category 02 </label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.category02 " />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Category 03 </label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.category03 " />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Category 04 </label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.category04 " />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Category 05 </label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.category05 " />
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                </div>
+
+            </uib-tab>
+
+            <uib-tab index="2">
+                <uib-tab-heading>
+                    <i class="glyphicon glyphicon-bell"></i> More Details
+                </uib-tab-heading>
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Purchase Date </label>
+
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup ng-model="pdate" is-open="dpOpenStatus.pdate" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+
+                            <span class="input-group-btn">
+                                <button type="button"
+                                        class="btn btn-default"
+                                        ng-click="setDpOpenStatus('pdate', $event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Purchase Price  </label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.purchasePrice" />
+
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Supplier Name</label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.supplierName" />
+
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Depreciation Mode  </label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.depreciationMode" />
+
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Current Value </label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.currentValue" />
+
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Description  </label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.asset.description" name="description" ng-maxlength="100" ng-messages="assetCreateForm.description.$error" />
+
+                            <div ng-messages="assetCreateForm.description.$error" ng-if="assetCreateForm.description.$touched">
+
+                                <div ng-messages-include="/App/Main/views/messages.html"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            </uib-tabset>
+
+
+
+
+
+
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-primary  btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-primary btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

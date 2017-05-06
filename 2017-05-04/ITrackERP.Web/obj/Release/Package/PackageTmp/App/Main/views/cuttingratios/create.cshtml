@@ -1,0 +1,127 @@
+﻿
+<div id="createRatio">
+
+    <form name="ratioCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block"> Create New Style </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Style No</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.cuttingRatio.ratioNo" required />
+
+
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Style No</label>
+                    <div class="controls">
+
+                        <input type="text" typeahead-on-select="setStyle($item)" ng-model="selectedStyle" uib-typeahead="style as style.styleNo for style in vm.styles | filter:$viewValue | limitTo:8" class="form-control">
+                        <pre>{{selectedStyle|json}}</pre>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Color</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.cuttingRatio.color" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Marker Length</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.cuttingRatio.markerLength" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Marker Width</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.cuttingRatio.markerWidth" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Layer Length</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.cuttingRatio.layerLength" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Fabric Type</label>
+                    <div class="controls">
+                        <input type="text" class="span6 m-wrap" ng-model="vm.cuttingRatio.fabricType" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Buyer ID</label>
+                    <div class="controls">
+
+                        <input type="text" class="span6 m-wrap" ng-model="vm.cuttingRatio.remark" required />
+
+
+
+
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+          
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

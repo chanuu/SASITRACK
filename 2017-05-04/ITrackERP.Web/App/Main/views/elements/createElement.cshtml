@@ -1,0 +1,107 @@
+﻿
+<div id="element">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="elementCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.element.name }} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label"> Name  </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.element.name" name="name" ng-messages="elementCreateForm.name.$error" required />
+
+                        <div ng-messages="elementCreateForm.name.$error" ng-if="elementCreateForm.name.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Length </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.element.length" name="length" ng-messages="elementCreateForm.length.$error" required />
+
+                        <div ng-messages="elementCreateForm.length.$error" ng-if="elementCreateForm.length.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Width </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.element.width" name="width" ng-messages="elementCreateForm.width.$error" required />
+
+                        <div ng-messages="elementCreateForm.width.$error" ng-if="elementCreateForm.width.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Category </label>
+                    <div class="controls">
+                        <select class="form-control" name="type" ng-model="vm.element.category" required>
+                            <option value="Category 1">Category 1</option>
+                            <option value="Category 2">Category 2</option>
+                            <option value="Category 3">Category 3</option>
+                            <option value="Category 4">Category 4</option>
+                            <option value="Category 5">Category 5</option>
+                            <option value="Category 6">Category 6</option>
+                        </select>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>            
+            </div>
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <br>Image:
+                    <input type="file" name="file" ngf-select ng-model="file" ngf-pattern="'image/*'" ngf-accept="'image/*'">
+
+                    <i ng-show="elementCreateForm.file.$error.maxSize">
+                        File too large
+                        {{errorFile.size / 1000000|number:1}}MB: max 2M
+                    </i>
+                    <img ng-show="elementCreateForm.file.$valid" ngf-thumbnail="file" class="thumb"> <button ng-click="file = null" ng-show="file">Remove</button>
+                    <br>
+
+                    <span class="progress" ng-show="file.progress >= 0">
+                        <div style="width:{{file.progress}}%" ng-bind="file.progress + '%'"></div>
+                    </span>
+                    <span ng-show="file.result">Upload Successful</span>
+                    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="event-actions">
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

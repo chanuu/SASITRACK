@@ -1,0 +1,180 @@
+﻿<div ng-controller="app.views.dashboard.cutting.summary as vm">
+
+    <div class="event-actions margin-adjust">
+
+
+
+        <a class="btn btn-primary btn-green" ng-href="#/dashboards/cutting/" ng-click=""><i class="fa fa-arrow-circle-left"></i> Dashboard </a>
+
+        <a class="btn btn-primary btn-blue" ng-href="#/dashboards/cutting/tablecut"><i class="fa fa-arrow-circle-left"></i> Back</a>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide" ng-click="isCollapsed2 = !isCollapsed2"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
+                    </div>
+                    Cutting Summary
+                </div>
+                <div uib-collapse="isCollapsed2" class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>
+
+                                    <small>{{date | date:'yyyy-MM-dd'}}</small>
+                                </h5>
+                                <div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content">
+                                <div>
+                                    <highchart id="chart1" series="chartConfig.series" title="chartConfig.title" options="chartConfig.options" style="min-width: 460px; height: 400px; margin: 0 auto"></highchart>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div>
+
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Style No</th>
+                                        <th><span class="pull-right">Order Qty</span></th>
+                                        <th><span class="pull-right">Plan Qty</span></th>
+                                        <th><span class="pull-right">Actual</span></th>
+                                        <th><span class="pull-right">Cumm</span></th>
+                                        <th><span class="pull-right">Balance</span></th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in cutSummary.items ">
+
+                                        <td>{{item.date | date:'yyyy/MM/dd'}} </td>
+                                        <td>{{item.styleNo}}</td>
+
+                                        <td><span class="pull-right">{{item.orderQty}}</span></td>
+                                        <td><span class="pull-right">{{item.planQty}}</span></td>
+                                        <td><span class="pull-right">{{item.actualQty}}</span></td>
+                                        <td><span class="pull-right">{{item.cumm}}</span></td>
+                                        <td><span class="pull-right">{{item.balance}}</span></td>
+                                        <td>
+                                            <a ng-href="#"><i class="fa fa-search text-blue small-icons"></i></a>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+
+                            </table>
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+
+
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>
+
+                                    <small>{{date | date:'yyyy-MM-dd'}}</small>
+                                </h5>
+                                <div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="chart-s">
+                                    <highchart id="chart2" series="chartConfig2.series" title="chartConfig2.title" options="chartConfig2.options" xAxis="chartConfig2.xAxis" style="min-width: 460px; height: 400px; margin: 0 auto"></highchart>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div>
+
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+
+                                        <th>Style No</th>
+                                        <th>Total Fabric Plan</th>
+                                        <th><span class="pull-right">Actual </span></th>
+                                        <th><span class="pull-right">Over Used </span></th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="j in fabircresult  ">
+
+                                        <td>{{j.styleNo}} </td>
+                                        <td>{{j.totalFabricPlan | number : 2}}</td>
+
+                                        <td><span class="pull-right">{{j.actualFabric| number : 2 }}</span></td>
+                                        <td><span class="pull-right">{{(j.totalFabricPlan - j.actualFabric)| number : 2 }}</span></td>
+                                        <td>
+                                            <a ng-href="#"><i class="fa fa-search text-blue small-icons"></i></a>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+
+                            </table>
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>

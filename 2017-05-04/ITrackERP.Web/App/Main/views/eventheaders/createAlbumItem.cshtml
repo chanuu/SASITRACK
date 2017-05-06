@@ -1,0 +1,61 @@
+﻿
+<div id="createAlbumItem">
+
+    <form name="albumCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.albumitem.name }} Details</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Name</label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="albumitem.name" name="name"/>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <br>Album Image:
+                    <input type="file" name="file" ngf-select ng-model="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" required>
+
+                    <i ng-show="albumCreateForm.file.$error.maxSize">
+                        File too large
+                        {{errorFile.size / 1000000|number:1}}MB: max 2M
+                    </i>
+                    <img ng-show="albumCreateForm.file.$valid" ngf-thumbnail="file" class="thumb"> <button ng-click="file = null" ng-show="file">Remove</button>
+                    <br>
+
+                    <span class="progress" ng-show="file.progress >= 0">
+                        <div style="width:{{file.progress}}%" ng-bind="file.progress + '%'"></div>
+                    </span>
+                    <span ng-show="file.result">Upload Successful</span>
+                    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

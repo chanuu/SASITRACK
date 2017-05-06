@@ -1,0 +1,143 @@
+﻿
+<div id="eventheader">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="eventheaderCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <!--  <h3 class="block">{{}} Details </h3>-->
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Name</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.eventheader.name" name="name" ng-messages="eventheaderCreateForm.name.$error" required />
+
+                        <div ng-messages="eventheaderCreateForm.name.$error" ng-if="eventheaderCreateForm.name.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Description </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.eventheader.description" name="description" ng-maxlength="100" ng-messages="eventheaderCreateForm.description.$error" />
+
+                        <div ng-messages="eventheaderCreateForm.description.$error" ng-if="eventheaderCreateForm.description.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Type</label>
+
+                    <div class="controls">
+                        <select class="form-control" name="type" ng-model="vm.eventheader.type" required>
+                            <option value="CSR">CSR</option>
+                            <option value="Welfare">Welfare</option>
+                            <option value="Training Programme">Training Programme</option>
+                        </select>
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Date </label>
+
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="fdate" is-open="dpOpenStatus.fdate" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default"
+                                    ng-click="setDpOpenStatus('fdate', $event)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Frequency</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.eventheader.frequency" name="name" ng-messages="eventheaderCreateForm.frequency.$error" required />
+
+                        <div ng-messages="eventheaderCreateForm.frequency.$error" ng-if="eventheaderCreateForm.frequency.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Expected Date </label>
+
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="edate" is-open="dpOpenStatus.edate" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default"
+                                    ng-click="setDpOpenStatus('edate', $event)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+               
+                </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Department</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setLineNo($item)" ng-model="selectedLineNo" uib-typeahead="department as department.name for department in vm.departments | filter:$viewValue | limitTo:8" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Venue</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.eventheader.venue" name="venue" ng-messages="eventheaderCreateForm.venue.$error" required />
+
+                        <div ng-messages="eventheaderCreateForm.venue.$error" ng-if="eventheaderCreateForm.venue.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <hr />
+
+                <div class="event-actions">
+
+
+
+                    <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                    <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+                </div>
+
+
+            </div>
+
+    </form>
+
+
+</div>

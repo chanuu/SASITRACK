@@ -1,0 +1,100 @@
+﻿
+<div id="machinetype">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="machinetypeCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.machinetype.machineTypeName }} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Machine Type Name  </label>
+                   
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.machinetype.machineTypeName" name="machineTypeName" ng-messages="machinetypeCreateForm.machineTypeName.$error" required />
+
+                        <div ng-messages="machinetypeCreateForm.machineTypeName.$error" ng-if="machinetypeCreateForm.machineTypeName.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Category1 </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.machinetype.category1"/>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Category2 </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.machinetype.category2" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Remark</label>
+                   
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.machinetype.remark" name="remark" ng-maxlength="100" ng-messages="machinetypeCreateForm.remark.$error" />
+
+                        <div ng-messages="machinetypeCreateForm.remark.$error" ng-if="machinetypeCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Is Production Machine </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.machinetype.isProductionMachine"/>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+           
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

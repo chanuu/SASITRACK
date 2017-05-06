@@ -1,0 +1,239 @@
+﻿
+<div id="DividingPlanDetail" ng-controller="app.views.dividingplans.detail as vm">
+
+    <uib-tabset>
+
+        <uib-tab>
+            <uib-tab-heading>
+                Operation Breakdown
+            </uib-tab-heading>
+
+            <!--dviding plan content-->
+
+            <div class="hpanel">
+
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
+                    </div>
+                    Dividing Plan Details
+
+                </div>
+                <div uib-collapse="isCollapsed" class="panel-body">
+
+                    <div class="event-actions">
+                        <a class="btn btn-sm btn-primary" ng-href="#/dividingplans" angular-ripple><i class="fa fa-arrow-circle-left"></i> back to DividingPlanHeader</a>
+
+                    </div>
+
+
+
+                    <div class="panel-heading margin">
+                        <h3 class="block">{{vm.dividingplan.styleId}} Details details</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row margin">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Line No </label>
+                                <div class="controls">
+
+                                    <div> {{vm.dividingplan.lineNo}} </div>
+                                    <span class="help-inline"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Total Employee </label>
+                                <div class="controls">
+
+                                    <div> {{vm.dividingplan.totalEmployee}} </div>
+                                    <span class="help-inline"></span>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row margin">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Target</label>
+                                <div class="controls">
+
+                                    <div> {{vm.dividingplan.target}} </div>
+                                    <span class="help-inline"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 margin">
+                                <label class="control-label">Production Per Hour</label>
+                                <div class="controls">
+
+                                    <div>{{vm.dividingplan.productionPerHour}} </div>
+                                    <span class="help-inline"></span>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row margin">
+
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">Remark</label>
+                                <div class="controls">
+
+                                    <div> {{vm.dividingplan.remark }} </div>
+                                    <span class="help-inline"></span>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row margin-adjust">
+
+                        <button ng-click="vm.dividingplanItemCreationModal()" class="btn btn-primary pull-right btn-green "><i class="fa fa-plus"></i> @L("Create")</button>
+                    </div>
+                    <div class="row margin-adjust">
+                        <form class="">
+                            <div class="input-group">
+                                <input type="text" ng-model="search" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                    <button type="button" class="btn btn-sm btn-primary"> Go!</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th># </th>
+                                <th>@L("OperationNo") </th>
+                                <th>@L("OperationName")</th>
+                                <th>@L("SMVType") </th>
+                                <th>@L("MachineType")</th>
+                                <th>@L("OperationRole") </th>
+                                <th>@L("PartName")</th>
+                                <th>@L("SMV") </th>
+                                <th>@L("WorkstationNo")</th>
+                                <th>@L("OpNo") </th>
+                                <th>@L("Action")</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-animate="'animate'" dir-paginate="dividingplan in vm.dividingplan.dividingPlanItems|orderBy:sortKey:reverse|filter:search|itemsPerPage:7">
+                                <td><input type="checkbox" checked class="i-checks" name="input[]"></td>
+                                <td>{{dividingplan.operationNo}}</td>
+                                <td>{{dividingplan.operationName }}</td>
+                                <td>{{dividingplan.smvType}}</td>
+                                <td>{{dividingplan.machineType}}</td>
+                                <td>{{dividingplan.operationRole}}</td>
+                                <td>{{dividingplan.partName}}</td>
+                                <td>{{dividingplan.smv}}</td>
+                                <td>{{dividingplan.workstationNo}}</td>
+                                <td>{{dividingplan.opNo}}</td>
+
+
+                                <td>
+                                    <!--  <a ng-href="#/dividingplans/{{dividingplan.id}}"><i class="fa fa-search text-green"></i></a> -->
+                                    <a ng-href="#/dividingplans/item/update/{{dividingplan.id}}"><i class="fa fa-edit text-green small-icons"></i></a>
+                                    <a ng-click="vm.delete(dividingplan)"><i class="fa fa-close text-red small-icons"></i></a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <dir-pagination-controls max-size="5"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>
+                    </table>
+
+                </div>
+            </div>
+        </uib-tab>
+        
+        <uib-tab>
+            <uib-tab-heading>
+                Layout Designer
+            </uib-tab-heading>
+            <!-- Layout Designer Content-->>
+
+            
+                <div class="row" ng-init="initt()">
+
+                    <div id="sample">
+                        <div style="width:100%; white-space:nowrap;height:auto">
+                            <span style="display: inline-block; vertical-align: top; padding: 5px;">
+
+                                <div id="accordion">
+
+                                    <h4>Category 1</h4>
+                                    <div>
+                                        <div id="Category 1" style="width: 140px; height: 360px !important"></div>
+                                    </div>
+                                    <h4>Category 2</h4>
+                                    <div>
+                                        <div id="Category 2" style="width: 140px; height: 360px !important"></div>
+                                    </div>
+                                    <h4>Category 3</h4>
+                                    <div>
+                                        <div id="Category 3" style="width: 140px; height: 360px !important"></div>
+                                    </div>
+                                    <h4>Category 4</h4>
+                                    <div>
+                                        <div id="Category 4" style="width: 140px; height: 360px !important"></div>
+                                    </div>
+                                    <h4>Category 5</h4>
+                                    <div>
+                                        <div id="Category 5" style="width: 140px; height: 360px !important"></div>
+                                    </div>
+                                    <h4>Category 6</h4>
+                                    <div>
+                                        <div id="Category 6" style="width: 140px; height: 360px !important"></div>
+                                    </div>
+                                   
+                                </div>
+                            </span>
+                            <span style="display: inline-block; vertical-align: top; padding: 5px; width:80%">
+                                <div id="myDiagramDiv" style="border: solid 1px black; height: 500px"></div>
+                            </span>
+                        </div>
+
+                        <!-- <div>
+                <!-- Diagram Model saved in JSON format, automatically updated after each transaction:-->
+                        <pre id="savedModel" style="height:250px" hidden></pre>
+                    </div>
+                    -->
+                    <div class="row">                    
+                        <div class="col-md-6 col-sm-12">
+                            <input id="savetoJson" type="button" value="Save" ng-click="saveToJason()" />
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input id="deleteJson" type="button" value="Delete" ng-click="deleteJason()" />
+                        </div>                    
+                    </div>
+                </div>
+
+           
+        </uib-tab>
+
+     </uib-tabset>
+
+
+
+
+   
+    
+    </div>
+
+   
+

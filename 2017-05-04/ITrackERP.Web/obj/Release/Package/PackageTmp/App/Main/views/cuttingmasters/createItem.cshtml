@@ -1,0 +1,94 @@
+﻿
+<div id="createCutting" ng-controller="app.views.cuttingmasters.createItem as vm">
+
+    <form name="ratioCreateForm" role="form" novalidate class="form-validation">
+
+      
+
+      
+        <div class=" margin">
+            <h3 class="block"> Create Cutting Item</h3>
+        </div>
+
+        <div class="panel-body">
+         
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Marker No</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="cuttingMaster.layerNo" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Cutting Ratio</label>
+                    <div class="controls">
+                        
+                        <input type="text" typeahead-on-select="setStyle($item)" ng-model="selectedRatio" uib-typeahead="ratio as ratio.ratioNo for ratio in ratios | filter:$viewValue | limitTo:8"   class="form-control">
+
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Po No</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="cuttingMaster.poNo" required />  <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Fabric Type</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="cuttingMaster.fabricType" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+              
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">No Of Plys</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="cuttingMaster.noOfItem " required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-default btn-sm  btn-green" ng-click="vm.save()"><i class="fa fa-save"></i> Save </a>
+
+                <a class="btn btn-default btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-close"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

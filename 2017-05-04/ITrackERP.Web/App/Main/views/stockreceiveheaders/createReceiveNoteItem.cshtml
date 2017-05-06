@@ -1,0 +1,70 @@
+﻿
+<div id="createReceiveNoteItem">
+
+    <form name="receivenoteitemCreateForm" role="form" novalidate class="form-validation">
+
+        <div class=" margin">
+            <h3 class="block">{{vm.receivenoteitem.itemCode}} Details Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Item Code</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setItemNo($item)" ng-model="selectedItemCode" uib-typeahead="itemmaster as itemmaster.itemNo for itemmaster in vm.itemmasters | filter:$viewValue | limitTo:8" class="form-control">
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Purchase Price </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.receivenoteitem.purchasePrice" name="purchasePrice" ng-messages="receivenoteitemCreateForm.purchasePrice.$error" required />
+
+                        <div ng-messages="receivenoteitemCreateForm.purchasePrice.$error" ng-if="receivenoteitemCreateForm.purchasePrice.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Nos</label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.receivenoteitem.nos" name="nos" ng-messages="receivenoteitemCreateForm.nos.$error" required />
+
+                        <div ng-messages="receivenoteitemCreateForm.nos.$error" ng-if="receivenoteitemCreateForm.nos.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

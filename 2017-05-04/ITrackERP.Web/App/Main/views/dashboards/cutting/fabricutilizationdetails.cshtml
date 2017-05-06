@@ -1,0 +1,121 @@
+﻿<div ng-controller="app.views.dashboard.cutting.fabricutilizationdetails as vm">
+
+
+    <div class="row" >
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide" ng-click="isCollapsed2 = !isCollapsed2"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
+                    </div>
+                    Cutting Summary
+                </div>
+                <div uib-collapse="isCollapsed2" class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>
+                                    Fabric Utilization Summary
+                                    <small>{{date | date:'yyyy-MM-dd'}}</small>
+                                </h5>
+                                <div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content">
+                                <div>
+                                    <am-chart class="chart-m" id="myFirstChart" options="amChartOptions" height="700px" width="100%"></am-chart>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="row" >
+        <div class="col-lg-12">
+
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
+                    </div>
+                    Cutting Details By Style
+                </div>
+
+
+
+
+                <div uib-collapse="isCollapsed" class="panel-body">
+                    <div>
+                        <div ng-repeat="(key, value) in datalist | groupBy: '[date,styleNo]'">
+
+                            <h6> Style No: {{Split(key,1)}} for  Date: {{Split(key,0) | date:'yyyy/MM/dd'}} </h6>
+
+                            <table class="table  table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>LayerNo</th>
+                                        <th>TotalPcs</th>
+                                        <th>NoOfPlys</th>
+                                        <th><span class="pull-right">S.P.C.S</span></th>
+                                        <th><span class="pull-right">Fabric Plan</span></th>
+                                        <th><span class="pull-right">Actual</span></th>
+                                        <th><span class="pull-right">Over Used</span></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="player in value">
+                                        <td>{{ player.date | date:'yyyy/MM/dd' }}</td>
+                                        <td>{{ player.layerNo }}</td>
+                                        <td>{{player.totlaPcs}}</td>
+                                        <td>{{player.noOfPlys}}</td>
+                                        <td><span class="pull-right">{{player.singlePcsConsumption| number : 2}}</span></td>
+                                        <td><span class="pull-right">{{player.totalFabricPlan |number : 2}}</span></td>
+                                        <td><span class="pull-right">{{player.actualFabric| number : 2}}</span></td>
+                                        <td><span class="pull-right">{{player.deference| number : 2}}</span></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5"><span class="pull-right"></span></td>
+                                        <td></td>
+                                        <td><span class="pull-right">Total : {{getSum(value)| number : 2}}</span></td>
+                                        <td><span class="pull-right">Over Used:{{getOverUsed(value)| number : 2}}</span></td>
+                                    </tr>
+                                </tbody>
+
+
+
+                            </table>
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

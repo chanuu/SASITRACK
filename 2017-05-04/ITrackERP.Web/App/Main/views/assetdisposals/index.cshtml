@@ -1,0 +1,76 @@
+﻿<div ng-controller="app.views.assetdisposals.index as vm">
+
+    <div class="row">
+        <div class="col-md-12 ">
+
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
+                    </div>
+                    Asset Disposal Headers
+                </div>
+
+                <div uib-collapse="isCollapsed" class="panel-body">
+                    <div class="row margin-adjust">
+
+                        <button ng-click="vm.assetdisposalCreationModal()" angular-ripple class="btn btn-primary pull-right btn-green "><i class="fa fa-plus"></i> @L("CreateNewAssetDisposalHeader")</button>
+                    </div>
+
+                    
+                    <div class="row margin-adjust">
+                        <form class="">
+                            <div class="input-group">
+                                <input type="text" ng-model="search" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                    <button type="button" class="btn btn-sm btn-primary"> Go!</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th># </th>
+                                <th>@L("Disposal Note No") </th>
+                                <th>@L("Type")</th>
+                                <th>@L("Date")</th>
+                                <th>@L("Disposal By")</th>
+                                <th>@L("Approved By")</th>
+                                <th>@L("Remark ")</th>
+                                <th>@L("Status ")</th>
+                                <th>@L("Action ")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-animate="'animate'" dir-paginate="assetdisposal in vm.assetdisposals|orderBy:sortKey:reverse|filter:search|itemsPerPage:7">
+                                <td><input type="checkbox" checked class="i-checks" name="input[]"></td>
+                                <td>{{assetdisposal.disposalNoteNo}}</td>
+                                <td>{{assetdisposal.type}}</td>
+                                <td>{{assetdisposal.date | date:'yyyy/MM/dd'}}</td>
+                                <td>{{assetdisposal.disposalBy}}</td>
+                                <td>{{assetdisposal.approvedBy}}</td>
+                                <td>{{assetdisposal.remark}}</td>
+                                <td>{{assetdisposal.status}}</td>
+
+                                <td>
+                                    <a ng-href="#/assetdisposals/{{assetdisposal.id}}"><i class="fa fa-search text-green"></i></a>
+                                    <a ng-href="#/assetdisposals/update/{{assetdisposal.id}}"><i class="fa fa-edit text-green small-icons"></i></a>
+                                    <a ng-click="vm.delete(assetdisposal)"><i class="fa fa-close text-red small-icons"></i></a>
+                                    
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                        <dir-pagination-controls max-size="5"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+﻿<div id="MachineTypeDetail" ng-controller="app.views.machinetypes.update as vm">
+    <route-loading-indicator></route-loading-indicator>
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+                <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                <a class="closebox"><i class="fa fa-times"></i></a>
+            </div>
+            Machine Types
+        </div>
+
+        <div uib-collapse="isCollapsed" class="panel-body">
+
+
+            <h3 class="block">{{vm.machinetype.machineTypeName}} Details</h3>
+
+
+            <div class="panel-body">
+
+                <form name="machineTypeUpdateForm" role="form" novalidate class="form-validation">
+                    <div class="row margin">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Machine Type Name  </label>
+                           
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.machinetype.machineTypeName" name="machineTypeName" ng-messages="machineTypeUpdateForm.machineTypeName.$error" required />
+
+                                <div ng-messages="machineTypeUpdateForm.machineTypeName.$error" ng-if="machineTypeUpdateForm.machineTypeName.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Category1 </label>
+                            <div class="controls">
+                                <input type="text" ng-model="vm.machinetype.category1 " class="form-control">
+                                <span class="help-inline"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row margin">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Category2 </label>
+                            <div class="controls">
+                                <input type="text" ng-model="vm.machinetype.category2 " class="form-control">
+                                <span class="help-inline"></span>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Remark</label>
+                           
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.machinetype.remark" name="remark" ng-maxlength="100" ng-messages="machineTypeUpdateForm.remark.$error" />
+
+                                <div ng-messages="machineTypeUpdateForm.remark.$error" ng-if="machineTypeUpdateForm.remark.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Is Production Machine </label>
+                            
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.machinetype.isProductionMachine" name="isProductionMachine" ng-messages="machineTypeUpdateForm.isProductionMachine.$error" required/>
+
+                                <div ng-messages="machineTypeUpdateForm.isProductionMachine.$error" ng-if="machineTypeUpdateForm.isProductionMachine.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <hr />
+                    <div class="event-actions">
+                        <a class="btn btn-primary btn-sm btn-green small-icons" ng-click="vm.update()"><i class="fa fa-arrow-circle-left"></i>Save</a>
+
+                        <a class="btn btn-primary btn-sm btn-blue small-icons" ng-click="vm.backToEventsPage()"><i class="fa fa-arrow-circle-left"></i> back to machine types</a>
+
+                    </div>
+
+
+</form>
+
+</div>
+        </div>
+
+    </div>
+</div>

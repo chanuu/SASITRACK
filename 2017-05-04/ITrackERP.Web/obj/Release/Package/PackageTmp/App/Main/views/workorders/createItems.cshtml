@@ -1,0 +1,79 @@
+﻿
+<div id="createWorkOrder">
+
+    <form name="workOrderCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.workOrder.workOrderNo}} Details details</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Color</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="workrOderRatio.color" required />
+
+
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Size</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="workrOderRatio.size" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Length</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="workrOderRatio.length" />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Quantity</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="workrOderRatio.quantity" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+           
+
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

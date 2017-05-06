@@ -1,0 +1,74 @@
+﻿<div ng-controller="app.views.dashboard.mis.view1 as vm">
+
+
+    <div class="row">
+        <div class="col-lg-3 col-s-6">
+            <a ng-href="#/styles">
+                <div class="hpanel">
+
+                    <div class="panel-body text-center h-200">
+                        <i class="pe-7s-scissors fa-4x"></i>
+                        <h3 class="m-xs">5</h3>
+                        <h3 class="font-extra-bold no-margins text-success">
+                            Summary
+                        </h3>
+                        <small>5 open styles.</small>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-s-6">
+            <a ng-href="#/dashboards/mis/cuttingactivestyles">
+                <div class="hpanel">
+
+                    <div class="panel-body text-center h-200">
+                        <i class="pe-7s-users fa-4x"></i>
+                        <h3 class="m-xs">8</h3>
+                        <h3 class="font-extra-bold no-margins text-success">
+                            Cutting
+                        </h3>
+                        <small>{{vm.items.length}} active Styles.</small>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-s-6">
+            <a ng-href="#/dashboards/cutting/fabricutilization">
+                <div class="hpanel">
+
+                    <div class="panel-body text-center h-200">
+                        <i class="pe-7s-credit fa-4x"></i>
+                        <h3 class="m-xs">15</h3>
+                        <h3 class="font-extra-bold no-margins text-success">
+                            Production
+                        </h3>
+                        <small>15 Work Orders Pending </small>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-s-6">
+            <div class="hpanel">
+
+                <div class="panel-body text-center h-200">
+                    <i class="pe-7s-global fa-4x"></i>
+                    <h3 class="m-xs">3</h3>
+                    <h3 class="font-extra-bold no-margins text-success">
+                        Finishing
+                        <a ng-href="#/dashboards/"><i class="fa fa-edit text-green small-icons"></i></a>
+                    </h3>
+                    <small>3 locations connect to network.</small>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>

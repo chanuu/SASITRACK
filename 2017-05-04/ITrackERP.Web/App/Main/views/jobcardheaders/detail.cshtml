@@ -1,0 +1,194 @@
+﻿<div id="JobCardHeaderDetail" ng-controller="app.views.jobcardheaders.detail as vm">
+
+
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+                <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                <a class="closebox"><i class="fa fa-times"></i></a>
+            </div>
+            Job Card Headers
+        </div>
+        <div uib-collapse="isCollapsed" class="panel-body">
+
+            <div class="event-actions">
+                <a class="btn btn-sm btn-primary" ng-href="#/jobcardheaders" angular-ripple><i class="fa fa-arrow-circle-left"></i> Back</a>
+                <a class="btn btn-sm btn-primary btn-green" ng-click="vm.update(vm.jobcardheader)" angular-ripple><i class="fa fa-check-circle"></i> Approve</a>
+            </div>
+
+           
+
+
+            <div class="panel-heading margin">
+                <h3 class="block">{{vm.jobcardheader.jobcardNo}} Details details</h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Job Card No</label>
+                        <div class="controls">
+
+                            <div> {{vm.jobcardheader.jobcardNo }} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Date </label>
+                        <div class="controls">
+
+                            <div> {{vm.jobcardheader.date | date:'yyyy/MM/dd'}} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Asset No </label>
+                        <div class="controls">
+
+                            <div> {{vm.jobcardheader.assetNo}} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Description </label>
+                        <div class="controls">
+
+                            <div>{{vm.jobcardheader.description}} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Total Cost</label>
+                        <div class="controls">
+
+                            <div> {{vm.jobcardheader.totalCost}} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Done By  </label>
+                        <div class="controls">
+
+                            <div>{{vm.jobcardheader.doneBy }} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Checked By</label>
+                        <div class="controls">
+
+                            <div> {{vm.jobcardheader.checkedBy }} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Status</label>
+                        <div class="controls">
+
+                            <div> {{vm.jobcardheader.status }} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>                  
+                </div>
+
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Remark</label>
+                        <div class="controls">
+
+                            <div>{{vm.jobcardheader.remark}} </div>
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div> 
+                </div>
+
+            </div>
+
+
+
+            <div class="row margin-adjust">
+
+                <button ng-click="vm.jobCardItemCreationModal()" class="btn btn-primary pull-right btn-green "><i class="fa fa-plus"></i> @L("Create")</button>
+            </div>
+            <div class="row margin-adjust">
+                <form class="">
+                    <div class="input-group">
+                        <input type="text" ng-model="search" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-primary"> Go!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th># </th>
+                        <th>@L("Item Code")</th>
+                        <th>@L("Serial No")</th>
+                        <th>@L("Amount")</th>
+                        <th>@L("Price")</th>
+                        <th>@L("Sub Total")</th>
+                        <th ng-show="vm.jobcardheader.checkedBy == 'N/A'">@L("Actions")</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-animate="'animate'" dir-paginate="jobcarditem in vm.jobcardheader.jobCardItems|orderBy:sortKey:reverse|filter:search|itemsPerPage:7">
+                        <td><input type="checkbox" checked class="i-checks" name="input[]"></td>
+                        <td>{{jobcarditem.itemCode}}</td>
+                        <td>{{jobcarditem.serialNo}}</td>
+                        <td>{{jobcarditem.amount}}</td>
+                        <td>{{jobcarditem.price}}</td>
+                        <td>{{jobcarditem.subTotal}}</td>
+
+                        <td ng-show="vm.jobcardheader.checkedBy == 'N/A'">
+                            <a ng-href="#/jobcardheaders/item/update/{{jobcarditem.id}}"><i class="fa fa-edit text-green small-icons"></i></a>
+                            <a ng-click="vm.delete(jobcarditem)"><i class="fa fa-close text-red small-icons"></i></a>
+                        </td>
+
+                    </tr>
+                </tbody>
+                <dir-pagination-controls max-size="5"
+                                         direction-links="true"
+                                         boundary-links="true">
+                </dir-pagination-controls>
+            </table>
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+

@@ -1,0 +1,144 @@
+﻿
+<div id="rentmachine">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="rentmachineCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.rentmachine.rentManagementID}} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Rent Management ID </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.rentmachine.rentManagementID" name="rentManagementID" ng-messages="rentmachineCreateForm.rentManagementID.$error" required />
+
+                        <div ng-messages="rentmachineCreateForm.rentManagementID.$error" ng-if="rentmachineCreateForm.rentManagementID.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+               
+               
+
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Machine Type </label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setMachineType($item)" ng-model="selectedMachineType" uib-typeahead="machinetype as machinetype.machineTypeName for machinetype in vm.machinetypes | filter:$viewValue | limitTo:8" class="form-control">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Machine Serial No </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.rentmachine.machineSerialNo" name="machineSerialNo" ng-messages="rentmachineCreateForm.machineSerialNo.$error" required />
+
+                        <div ng-messages="rentmachineCreateForm.machineSerialNo.$error" ng-if="rentmachineCreateForm.machineSerialNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+
+                    </div>
+                </div>
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Rent Barcode </label>
+
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="vm.rentmachine.rentBarcode" name="rentBarcode" ng-messages="rentmachineCreateForm.rentBarcode.$error" required />
+
+                            <div ng-messages="rentmachineCreateForm.rentBarcode.$error" ng-if="rentmachineCreateForm.rentBarcode.$touched">
+
+                                <div ng-messages-include="/App/Main/views/messages.html"></div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">From Date </label>
+  
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="fdate" is-open="dpOpenStatus.fdate" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+
+                        <span class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default"
+                                    ng-click="setDpOpenStatus('fdate', $event)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+
+
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">To Date </label>
+                   
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="tdate" is-open="dpOpenStatus.todate" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+
+                        <span class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default"
+                                    ng-click="setDpOpenStatus('todate', $event)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Remark </label>                 
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.rentmachine.remark" name="remark" ng-maxlength="100" ng-messages="rentmachineCreateForm.remark.$error" />
+
+                        <div ng-messages="rentmachineCreateForm.remark.$error" ng-if="rentmachineCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+               
+            </div>
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

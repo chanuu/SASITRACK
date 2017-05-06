@@ -1,0 +1,190 @@
+﻿<div id="UpdateFile" ng-controller="app.views.files.update as vm">
+    <route-loading-indicator></route-loading-indicator>
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+                <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                <a class="closebox"><i class="fa fa-times"></i></a>
+            </div>
+            Files
+        </div>
+
+        <div uib-collapse="isCollapsed" class="panel-body">
+
+
+            <h3 class="block">Update</h3>
+
+
+            <div class="panel-body">
+
+                <form name="fileUpdateForm" role="form" novalidate class="form-validation">
+
+
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Type</label>
+                            <div class="controls">
+                                <input type="text" ng-change="vm.categoryChange()" typeahead-on-select="getCustomFieldsEvent('1')" ng-model="selectedItemType" uib-typeahead="custom as custom.itemType for custom in vm.customfieldsetups | filter:$viewValue | limitTo:8" class="form-control" required>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12" ng-show="vm.customcaption1 != null && selectedItemType != null">
+                            <label class="control-label">{{vm.customcaption1}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.file.customField1" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                       
+
+                    </div>
+
+                    <div class="row margin">
+                       
+                        <div class="col-md-6 col-sm-12" ng-show="vm.customcaption2 != null && selectedItemType != null">
+                            <label class="control-label">{{vm.customcaption2}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.file.customField2" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12" ng-show="vm.customcaption3 != null && selectedItemType != null">
+                            <label class="control-label">{{vm.customcaption3}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.file.customField3" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row margin">
+                        
+                        <div class="col-md-6 col-sm-12" ng-show="vm.customcaption4 != null && selectedItemType != null">
+                            <label class="control-label">{{vm.customcaption4}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.file.customField4" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12" ng-show="vm.customcaption5 != null && selectedItemType != null">
+                            <label class="control-label">{{vm.customcaption5}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.file.customField5" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row margin">
+                        
+                        <div class="col-md-6 col-sm-12" ng-show="vm.customcaption6 != null && selectedItemType != null">
+                            <label class="control-label">{{vm.customcaption6}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.file.customField6" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <div ng-show="selectedItemType != null" class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Category 1</label>
+                            <div class="controls">
+                                <input type="text" name="category1" ng-model="selectedCategory1" ng-change="vm.categoryChange('1')" uib-typeahead="category1 as category1.categoryName for category1 in vm.category1Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false" required>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row margin">
+
+                        <div ng-show="selectedItemType != null && selectedCategory1 != null" class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Category 2</label>
+                            <div class="controls">
+                                <input type="text" name="category2" ng-model="selectedCategory2" ng-change="vm.categoryChange('2')" uib-typeahead="category2 as category2.categoryName for category2 in vm.category2Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <div ng-show="selectedItemType != null && selectedCategory1 != null && selectedCategory2 != null" class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Category 3</label>
+                            <div class="controls">
+                                <input type="text" name="category3" ng-model="selectedCategory3" ng-change="vm.categoryChange('3')" uib-typeahead="category3 as category3.categoryName for category3 in vm.category3Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row margin">
+
+                        <div ng-show="selectedItemType != null && selectedCategory1 != null && selectedCategory2 != null && selectedCategory3 != null" class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Category 4</label>
+                            <div class="controls">
+                                <input type="text" name="category4" ng-model="selectedCategory4" ng-change="vm.categoryChange('4')" uib-typeahead="category4 as category4.categoryName for category4 in vm.category4Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <div ng-show="selectedItemType != null && selectedCategory1 != null && selectedCategory2 != null && selectedCategory3 != null && selectedCategory4 != null" class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Category 5</label>
+                            <div class="controls">
+                                <input type="text" name="category5" ng-model="selectedCategory5" ng-change="vm.categoryChange('5')" uib-typeahead="category5 as category5.categoryName for category5 in vm.category5Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row margin">
+                        <div ng-show="vm.file.path != 'N/A'" class="row margin">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="control-label">File</label>
+                                <div class="controls">
+                                    <button class="close" aria-hidden="true" ng-click="vm.deleteFile(vm.file)">×</button>
+
+                                    <iframe src="{{vm.file.path}}"></iframe>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-show="vm.file.path == 'N/A'" class="row margin">
+                            <div class="col-md-6 col-sm-12">
+                                <br>File:
+                                <input type="file" name="file" ngf-select ng-model="file">
+
+                                <i ng-show="fileUpdateForm.file.$error.maxSize">
+                                    File too large
+                                    {{errorFile.size / 1000000|number:1}}MB: max 2M
+                                </i>
+                                <br>
+
+                                <span class="progress" ng-show="file.progress >= 0">
+                                    <div style="width:{{file.progress}}%" ng-bind="file.progress + '%'"></div>
+                                </span>
+                                <span ng-show="file.result">Upload Successful</span>
+                                <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                        <hr />
+                        <div class="event-actions">
+                            <a class="btn btn-primary btn-sm btn-green small-icons" ng-click="vm.update()"><i class="fa fa-arrow-circle-left"></i>Save</a>
+
+                            <a class="btn btn-primary btn-sm btn-blue small-icons" ng-click="vm.back()"><i class="fa fa-arrow-circle-left"></i> back to files</a>
+
+                        </div>
+
+
+
+</form>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿
+<div id="createDailyPlanItem">
+
+    <form name="dailyplanitemCreateForm" role="form" novalidate class="form-validation">
+
+        <div class=" margin">
+            <h3 class="block">{{dailyplanitem.styleNo}} Details</h3>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Style No</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setStyle($item)" ng-model="selectedStyle" uib-typeahead="style as style.styleNo for style in vm.styles | filter:$viewValue | limitTo:8" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">PO No </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.dailyplanitem.poNo " name="poNo" ng-messages="dailyplanitemCreateForm.poNo.$error" required />
+
+                        <div ng-messages="dailyplanitemCreateForm.poNo.$error" ng-if="dailyplanitemCreateForm.poNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+
+            <div class="row margin">
+               
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Color </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.dailyplanitem.color " name="color" ng-messages="dailyplanitemCreateForm.color.$error" required />
+
+                        <div ng-messages="dailyplanitemCreateForm.color.$error" ng-if="dailyplanitemCreateForm.color.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Size </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.dailyplanitem.size " name="size" ng-messages="dailyplanitemCreateForm.size.$error" required />
+
+                        <div ng-messages="dailyplanitemCreateForm.size.$error" ng-if="dailyplanitemCreateForm.size.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Length </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.dailyplanitem.length " name="length" ng-messages="dailyplanitemCreateForm.length.$error" required />
+
+                        <div ng-messages="dailyplanitemCreateForm.length.$error" ng-if="dailyplanitemCreateForm.length.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">No of Plys </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.dailyplanitem.noOfPlys " name="noOfPlys" ng-messages="dailyplanitemCreateForm.noOfPlys.$error" required />
+
+                        <div ng-messages="dailyplanitemCreateForm.noOfPlys.$error" ng-if="dailyplanitemCreateForm.noOfPlys.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+                          
+            </div>
+            <div class="row margin">
+            
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">No of Item </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.dailyplanitem.noOfItem " name="noOfItem" ng-messages="dailyplanitemCreateForm.noOfItem.$error" required />
+
+                        <div ng-messages="dailyplanitemCreateForm.noOfItem.$error" ng-if="dailyplanitemCreateForm.noOfItem.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

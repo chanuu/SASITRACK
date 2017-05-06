@@ -1,0 +1,37 @@
+﻿<div ng-controller="app.views.timeline.index as vm">
+ 
+   <daypilot-scheduler id="dp" config="config" events="events"></daypilot-scheduler>
+  
+   
+    <!--  <daypilot-scheduler id="dp" daypilot-config="config" daypilot-events="events"></daypilot-scheduler>-->
+    
+    <br />
+
+    <br />
+    <div class="space">
+       <!-- New Machine Requirement:-->
+        <button ng-click="add()" angular-ripple class="btn btn-primary pull-right btn-green "><i class="fa fa-plus"></i> CreateNewStyleLoading</button>
+    </div>
+
+
+  <!-- <div class="space">
+        First event:
+        <button ng-click="move()">Move</button>
+        <button ng-click="rename()">Rename</button>
+    </div>--> 
+
+    <div class="space">
+        <span class="bold">Scale:</span>
+        <a ng-click="scale('Day')" href="javascript:void(0)">Days</a>
+        <a ng-click="scale('Week')" href="javascript:void(0)">Weeks</a>
+    </div>
+
+
+    <div class="space">
+        <div class="bold">Selected events (click or Ctrl+click to select):</div>
+        <div ng-repeat="item in selectedEvents">
+            {{item.text()}} - {{item.start()}}
+        </div>
+    </div>
+
+</div>

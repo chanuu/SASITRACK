@@ -1,0 +1,102 @@
+﻿
+<div id="department">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="departmentCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.department.name}} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Name </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.department.name" name="name" ng-messages="departmentCreateForm.name.$error" required />
+
+                        <div ng-messages="departmentCreateForm.name.$error" ng-if="departmentCreateForm.name.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Bardcode No </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.department.barcodeNo" name="barcodeNo" ng-messages="departmentCreateForm.barcodeNo.$error" required />
+
+                        <div ng-messages="departmentCreateForm.barcodeNo.$error" ng-if="departmentCreateForm.barcodeNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="row margin">
+               
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Length </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.department.length" name="length" ng-messages="departmentCreateForm.length.$error" required />
+
+                        <div ng-messages="departmentCreateForm.length.$error" ng-if="departmentCreateForm.length.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Width </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.department.width" name="width" ng-messages="departmentCreateForm.width.$error" required />
+
+                        <div ng-messages="departmentCreateForm.width.$error" ng-if="departmentCreateForm.width.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Remark </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.department.remark" name="remark" ng-maxlength="100" ng-messages="departmentCreateForm.remark.$error" />
+
+                        <div ng-messages="departmentCreateForm.remark.$error" ng-if="departmentCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+                <hr />
+
+                <div class="event-actions">
+
+
+
+                    <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                    <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+                </div>
+
+
+            </div>
+
+    </form>
+
+
+</div>

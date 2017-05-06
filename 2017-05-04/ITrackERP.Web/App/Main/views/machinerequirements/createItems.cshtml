@@ -1,0 +1,82 @@
+﻿
+<div id="createMachineRequirement">
+
+    <form name="machineRequirementItemCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.machinerequirement.styleNo }} Details details</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Machine Type </label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setMachineType($item)" ng-model="selectedMachineType" uib-typeahead="machinetype as machinetype.machineTypeName for machinetype in vm.machinetypes | filter:$viewValue | limitTo:8" class="form-control">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Nos</label>                                      
+                    
+                    <div class="controls">
+
+                        <input type="text" class="form-control" ng-model="machinerequirementitem.nos" name="nos" ng-messages="machineRequirementItemCreateForm.nos.$error" required/>
+
+                        <div ng-messages="machineRequirementItemCreateForm.nos.$error" ng-if="machineRequirementItemCreateForm.nos.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Remark</label>
+                  
+                    <div class="controls">
+
+                        <input type="text" class="form-control" ng-model="machinerequirementitem.remark" name="remark" ng-maxlength="100" ng-messages="machineRequirementItemCreateForm.remark.$error" />
+
+                        <div ng-messages="machineRequirementItemCreateForm.remark.$error" ng-if="machineRequirementItemCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

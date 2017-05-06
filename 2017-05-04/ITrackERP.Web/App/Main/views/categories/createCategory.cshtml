@@ -1,0 +1,97 @@
+﻿
+<div id="Category">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="categoryCreateForm" role="form" novalidate class="form-validation">
+
+        <div class=" margin">
+            <h3 class="block">{{vm.category.name }} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Type</label>
+                    <div class="controls">
+                        <select class="form-control" name="type" ng-model="vm.category.type" required>
+                            <option value="Document">Document</option>
+                        </select>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+        
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Name</label>
+                    <div class="controls">
+                        <input name="itemType" type="text"  ng-model="selectedItemType" uib-typeahead="custom as custom.itemType for custom in vm.customfieldsetups | filter:$viewValue | limitTo:8" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Level No</label>
+                    <div class="controls">
+                        <select class="form-control" name="type" ng-model="vm.category.levelNo" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Category Name </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.category.categoryName" name="categoryName" ng-messages="categoryCreateForm.categoryName.$error" required />
+
+                        <div ng-messages="categoryCreateForm.categoryName.$error" ng-if="categoryCreateForm.categoryName.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Remark</label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.category.remark" name="remark" ng-maxlength="100" ng-messages="categoryCreateForm.remark.$error" />
+
+                        <div ng-messages="categoryCreateForm.remark.$error" ng-if="categoryCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

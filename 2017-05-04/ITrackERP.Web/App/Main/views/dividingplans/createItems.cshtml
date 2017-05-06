@@ -1,0 +1,127 @@
+﻿
+<div id="createDividingPlanHeader">
+
+    <form name="dividingPlanHeaderItemCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.dividingplan.dividingPlanHeaderId }} Details details</h3>
+        </div>
+       
+        <div class="panel-body">
+            <div class="row margin">
+               
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Operation No</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="getOperationFieldsEvent ()" ng-model="selectedOperationCode" uib-typeahead="operationcode as operationcode.operationCode for operationcode in vm.operations | filter:$viewValue | limitTo:8" class="form-control">
+                        <span class="help-inline"></span>
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Operation Name </label>                 
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="dividingplandetail.operationName" name="operationName" ng-messages="dividingPlanHeaderItemCreateForm.operationName.$error" required />
+
+                        <div ng-messages="dividingPlanHeaderItemCreateForm.operationName.$error" ng-if="dividingPlanHeaderItemCreateForm.operationName.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">SMV Type  </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="dividingplandetail.smvType"/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Machine Type</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="dividingplandetail.machineType" name="machineType" />                     
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Operation Role  </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="dividingplandetail.operationRole "/>
+
+
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Part Name </label>      
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="dividingplandetail.partName" name="partName" ng-messages="dividingPlanHeaderItemCreateForm.partName.$error" required />
+
+                        <div ng-messages="dividingPlanHeaderItemCreateForm.partName.$error" ng-if="dividingPlanHeaderItemCreateForm.partName.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">SMV</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="dividingplandetail.smv" required />
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Workstation No </label>                   
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="dividingplandetail.workstationNo" name="workstationNo" ng-messages="dividingPlanHeaderItemCreateForm.workstationNo.$error" required />
+
+                        <div ng-messages="dividingPlanHeaderItemCreateForm.workstationNo.$error" ng-if="dividingPlanHeaderItemCreateForm.workstationNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Op No </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="dividingplandetail.opNo"/>
+
+                    </div>
+                </div>
+               
+            </div>
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

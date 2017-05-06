@@ -1,0 +1,48 @@
+﻿
+<div id="serialitem">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="serialItemCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.serialitem.serialNo}} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Serail No</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.serialitem.serialNo" name="serialNo" ng-messages="serialItemCreateForm.serialNo.$error" required />
+
+                        <div ng-messages="serialItemCreateForm.serialNo.$error" ng-if="serialItemCreateForm.serialNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

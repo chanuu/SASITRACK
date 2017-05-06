@@ -1,0 +1,195 @@
+﻿
+<div id="operation">
+    <route-loading-indicator></route-loading-indicator>
+    <form name="operationpoolCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.operation.operationCode}} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Operation Code </label>                 
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.operationCode" name="operationCode" ng-messages="operationpoolCreateForm.operationCode.$error" required />
+
+                        <div ng-messages="operationpoolCreateForm.operationCode.$error" ng-if="operationpoolCreateForm.operationCode.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Operation Name  </label>                    
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.operationName" name="operationName" ng-messages="operationpoolCreateForm.operationName.$error" required />
+
+                        <div ng-messages="operationpoolCreateForm.operationName.$error" ng-if="operationpoolCreateForm.operationName.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Machine Type  </label>                   
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setMachineType($item)" ng-model="selectedMachineType" uib-typeahead="machinetype as machinetype.machineTypeName for machinetype in vm.machinetypes | filter:$viewValue | limitTo:8" class="form-control">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">SMV </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.smv"/>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">SMV Type  </label>
+
+
+                    <div class="controls">
+
+                        <input type="text" class="form-control" ng-model="vm.operation.smvType"/>
+                        <span class="help-inline"></span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Remark </label>
+                  
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.remark" name="remark" ng-maxlength="100" ng-messages="operationpoolCreateForm.remark.$error" />
+
+                        <div ng-messages="operationpoolCreateForm.remark.$error" ng-if="operationpoolCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Part Name  </label>                
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.partName" name="partName" ng-messages="operationpoolCreateForm.partName.$error" required />
+
+                        <div ng-messages="operationpoolCreateForm.partName.$error" ng-if="operationpoolCreateForm.partName.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Operation Role  </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.operationRole"/>
+
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Operation Grade </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.operationGrade"/>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Machine Speed </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.machineSpeed"/>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Seam Length </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.seamLength"/>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Seam Allowance </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.seamAllowance"/>
+
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">SPI </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.operation.spi"/>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+       
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

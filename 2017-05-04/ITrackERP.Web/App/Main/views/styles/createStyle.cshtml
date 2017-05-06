@@ -1,0 +1,155 @@
+﻿
+<div id="createStyle"  >
+    <route-loading-indicator></route-loading-indicator>
+    <form name="styleCreateForm" role="form" novalidate class="form-validation">
+
+        <div class=" margin">
+            <h3 class="block"> Create New Style </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+               
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Style No </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.styleNo" name="styleNo" ng-messages="styleCreateForm.styleNo.$error" required />
+
+                        <div ng-messages="styleCreateForm.styleNo.$error" ng-if="styleCreateForm.styleNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Article No </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.articleNo" name="articleNo" ng-messages="styleCreateForm.articleNo.$error" required />
+
+                        <div ng-messages="styleCreateForm.articleNo.$error" ng-if="styleCreateForm.articleNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+               
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Boc No </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.bocNo" name="bocNo" ng-messages="styleCreateForm.bocNo.$error" required />
+
+                        <div ng-messages="styleCreateForm.bocNo.$error" ng-if="styleCreateForm.bocNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Season</label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.season" name="season" ng-messages="styleCreateForm.season.$error" required />
+
+                        <div ng-messages="styleCreateForm.season.$error" ng-if="styleCreateForm.season.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Item Type</label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.itemType" name="itemType" ng-messages="styleCreateForm.itemType.$error" required />
+
+                        <div ng-messages="styleCreateForm.itemType.$error" ng-if="styleCreateForm.itemType.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Department</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setLineNo($item)" ng-model="selectedLineNo" uib-typeahead="department as department.name for department in vm.departments | filter:$viewValue | limitTo:8" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+
+            </div>
+         
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Order Type</label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.orderType" name="orderType" ng-messages="styleCreateForm.orderType.$error" required />
+
+                        <div ng-messages="styleCreateForm.orderType.$error" ng-if="styleCreateForm.orderType.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Buyer Name</label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setBuyerName($item)" ng-model="selectedBuyer" ng-model="selectedBuyer" uib-typeahead="buyers as buyers.buyerName for buyers in buyers | filter:$viewValue | limitTo:3" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+              
+               
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Remark</label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.remark" name="remark" ng-messages="styleCreateForm.remark.$error" required />
+
+                        <div ng-messages="styleCreateForm.remark.$error" ng-if="styleCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div class="event-actions">
+               
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+          
+
+        </div>
+
+    </form>
+
+
+</div>

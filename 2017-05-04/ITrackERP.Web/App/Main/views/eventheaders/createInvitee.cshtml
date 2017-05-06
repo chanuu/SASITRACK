@@ -1,0 +1,55 @@
+﻿
+<div id="createInvitee">
+
+    <form name="inviteeCreateForm" role="form" novalidate class="form-validation">
+
+
+
+
+        <div class=" margin">
+            <h3 class="block">{{vm.invitee.name }} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Name</label>
+                    <div class="controls">
+                        <input name="employee" type="text" ng-model="selectedEmployee" uib-typeahead="employee as employee.fullName for employee in vm.employees | filter:$viewValue | limitTo:8" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Status</label>
+                    <div class="controls">
+                        <select class="form-control" name="type" ng-model="invitee.status">
+                            <option value="Going">Going</option>
+                            <option value="Not going">Not going</option>
+                            <option value="Interested in">Interested in</option>
+                        </select>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

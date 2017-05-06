@@ -1,0 +1,76 @@
+﻿<div ng-controller="app.views.buyers.index as vm">
+    <route-loading-indicator></route-loading-indicator>
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div  class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
+                    </div>
+                    Buyer Profile
+                </div>
+                <div uib-collapse="isCollapsed" class="panel-body">
+                    <div class="row margin-adjust">
+                        <div class="input-group pull-right">
+                            <button ng-click="vm.buyerCreationModal()" class="btn btn-primary pull-right btn-green "><i class="fa fa-plus"></i> @L("CreateNewBuyere")</button>
+                        </div>
+                    </div>
+                  <div class="row margin-adjust">
+                    <form class="">
+                        <div class="input-group">
+                            <input type="text" ng-model="search" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary"> Go!</button>
+                            </span>
+                        </div>
+                    </form>
+                 </div>
+                           <table id="example2" class="table table-striped table-bordered table-hover">
+                               <thead>
+                                   <tr>
+                                       <th ng-click="sort('styleNo')">@L("BuyerName")</th>
+                                       <th ng-click="sort('orderType')">@L("TeleNo")</th>
+                                       <th ng-click="sort('orderType')">@L("Address")</th>
+                                       <th ng-click="sort('orderType')">@L("Email")</th>
+                                       <th ng-click="sort('orderType')">@L("Remark")</th>
+                                       <th>Action</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+
+                                   <tr ng-animate="'animate'" dir-paginate="buyer in vm.buyers|orderBy:sortKey:reverse|filter:search|itemsPerPage:7">
+                                       <td>{{buyer.buyerName}}</td>
+                                       <td>{{buyer.teleNo}}</td>
+                                       <td>{{buyer.address}}</td>
+                                       <td>{{buyer.email}}</td>
+                                       <td>{{buyer.remark}}</td>
+
+
+
+                                       <td><a ng-href="#/styles/{{buyer.id}}"><i class="fa fa-search text-green"></i></a></td>
+                                   </tr>
+                               </tbody>
+                           </table>
+                           <dir-pagination-controls max-size="5"
+                                                    direction-links="true"
+                                                    boundary-links="true">
+                           </dir-pagination-controls>
+
+                       </div>
+            </div>
+        </div>
+
+      
+
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,136 @@
+﻿
+<div id="createAssetTransferHeader">
+
+    <form name="assettransferCreateForm" role="form" novalidate class="form-validation">
+
+        <div class=" margin">
+            <h3 class="block">{{vm.assettransfer.requisitionNo}} Details Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Requisition No  </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.assettransfer.requisitionNo" name="requisitionNo" ng-messages="assettransferCreateForm.requisitionNo.$error" required />
+
+                        <div ng-messages="assettransferCreateForm.requisitionNo.$error" ng-if="assettransferCreateForm.requisitionNo.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Type</label>
+                    <div class="controls">
+                        <select class="form-control" name="type" ng-model="vm.assettransfer.type" required>
+                            <option value="ETA">ETA</option>
+                            <option value="ITA">ITA</option>
+                        </select>
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                           
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Date </label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="fdate" is-open="dpOpenStatus.fdate" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default"
+                                    ng-click="setDpOpenStatus('fdate', $event)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Remark </label>
+
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.assettransfer.remark" name="remark" ng-maxlength="100" ng-messages="assettransferCreateForm.remark.$error" />
+
+                        <div ng-messages="assettransferCreateForm.remark.$error" ng-if="assettransferCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div ng-show="vm.assettransfer.type == 'ETA'" class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">From Location </label>
+
+                    <div class=" controls">
+                        <select class="form-control" name="type" ng-model="vm.assettransfer.fromLocation">
+                            <option value="VTW">VTW</option>
+                            <option value="VTH">VTH</option>
+                            <option value="VTK">VTK</option>
+                            <option value="TGZ">TGZ</option>
+                        </select>
+                        <span class="help-inline"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">To Location </label>
+
+                    <div class="controls">
+                        <select class="form-control" name="type" ng-model="vm.assettransfer.toLocation">
+                            <option value="VTW">VTW</option>
+                            <option value="VTH">VTH</option>
+                            <option value="VTK">VTK</option>
+                            <option value="TGZ">TGZ</option>
+                        </select>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </div>
+        
+            <div ng-show="vm.assettransfer.type == 'ITA'" class="row margin">
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">From Location </label>                                 
+                        <div class="controls">
+                            <input type="text" typeahead-on-select="setLineNo($item)" ng-model="selectedLineNo1" uib-typeahead="department as department.name for department in vm.departments | filter:$viewValue | limitTo:8" class="form-control">
+                            <span class="help-inline"></span>
+                        </div>                   
+                </div>
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">To Location </label>
+                    <div class="controls">
+                        <input type="text" typeahead-on-select="setLineNo($item)" ng-model="selectedLineNo2" uib-typeahead="department as department.name for department in vm.departments | filter:$viewValue | limitTo:8" class="form-control">
+                        <span class="help-inline"></span>
+                    </div>                  
+                </div>
+            </div>
+                <hr />
+
+                <div class="event-actions">
+
+
+
+                    <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                    <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+                </div>
+
+
+            </div>
+
+    </form>
+
+
+</div>

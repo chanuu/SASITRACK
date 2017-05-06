@@ -1,0 +1,136 @@
+﻿
+<div id="createStyle"  >
+
+    <form name="styleCreateForm" role="form" novalidate class="form-validation">
+
+    
+
+
+        <div class=" margin">
+            <h3 class="block"> Create New Style </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Style No</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.styleNo" required />
+
+                        
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Article No</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.articleNo" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Boc No</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.bocNo"  />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Season</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.season" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Item Type</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.itemType" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Demartment</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.style.department" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+         
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Order Type</label>
+                    <div class="controls">
+                        <input type="text" class="span6 m-wrap" ng-model="vm.style.orderType" required />
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+              
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Buyer ID</label>
+                    <div class="controls">
+                       
+                        <input type="text" class="form-control" placeholder="Search  an Buyer" ng-model="selectedBuyer" uib-typeahead="buyers as buyers.buyerName for buyers in buyers | filter:$viewValue | limitTo:3">
+
+                        
+                        
+                       
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Remark</label>
+                    <div class="controls">
+                        <textarea name="Text1" class="form-control" rows="5" ng-model="vm.style.remark" > </textarea>
+
+                        <span class="help-inline"></span>
+
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div class="event-actions">
+               
+
+
+                <a class="btn btn-sm btn-green" ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+          
+
+        </div>
+
+    </form>
+
+
+</div>

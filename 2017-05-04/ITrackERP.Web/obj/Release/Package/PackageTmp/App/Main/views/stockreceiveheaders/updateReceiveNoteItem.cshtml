@@ -1,0 +1,90 @@
+﻿<div id="UpdateReceiveNoteItems" ng-controller="app.views.stockreceiveheaders.updateReceiveNoteItems as vm">
+    <route-loading-indicator></route-loading-indicator>
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+                <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                <a class="closebox"><i class="fa fa-times"></i></a>
+            </div>
+            Receive Note Items
+        </div>
+
+        <div uib-collapse="isCollapsed" class="panel-body">
+
+
+            <h3 class="block">Update</h3>
+
+
+            <div class="panel-body">
+                <form name="receiveNoteItemUpdateForm" role="form" novalidate class="form-validation">
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Item Code</label>
+                            <div class="controls">
+                                <input type="text" typeahead-on-select="setItemNo($item)" ng-model="selectedItemCode" uib-typeahead="itemmaster as itemmaster.itemNo for itemmaster in vm.itemmasters | filter:$viewValue | limitTo:8" class="form-control">
+                                <span class="help-inline"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 margin">
+                            <label class="control-label">Purchase Price </label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.receivenoteitem.purchasePrice" name="purchasePrice" ng-messages="receivenoteitemCreateForm.purchasePrice.$error" required />
+
+                                <div ng-messages="receivenoteitemCreateForm.purchasePrice.$error" ng-if="receivenoteitemCreateForm.purchasePrice.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row margin">
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Nos</label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.receivenoteitem.nos" name="nos" ng-messages="receivenoteitemCreateForm.nos.$error" required />
+
+                                <div ng-messages="receivenoteitemCreateForm.nos.$error" ng-if="receivenoteitemCreateForm.nos.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--   <pre>{{vm.receivenoteitem |json}}</pre>-->
+
+                     <!--  <div class="col-md-6 col-sm-12">
+                            <label class="control-label">isIncludeSerials </label>
+                        
+                            <div class="controls">
+                                <input type="checkbox"  ng-checked="vm.receivenoteitem.isIncludeSerials==true" ng-model="vm.receivenoteitem.isIncludeSerials" name="isIncludeSerials" ng-true-value='true' ng-false-value='false' />
+                         
+                            </div>
+                        </div>
+                    --> 
+                    </div>
+                    </form>
+
+
+
+                    <hr />
+                    <div class="event-actions">
+                        <a class="btn btn-primary btn-sm btn-green small-icons" ng-click="vm.update()"><i class="fa fa-arrow-circle-left"></i>Save</a>
+
+                        <a class="btn btn-primary btn-sm btn-blue small-icons" ng-click="vm.back()"><i class="fa fa-arrow-circle-left"></i> back to stock receive header</a>
+
+                    </div>
+
+
+
+
+</div>
+        </div>
+
+    </div>
+</div>

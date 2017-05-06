@@ -1,0 +1,5 @@
+function UserCtrl($scope, $http) {
+    $scope.users = []
+    $http.get('data/users.txt').success(function(data, status, headers, config) {
+        $scope.users = data.split(',')
+    })}

@@ -1,0 +1,101 @@
+﻿
+<div id="createPromotion">
+
+    <form name="promotionCreateForm" role="form" novalidate class="form-validation">
+
+        <div class=" margin">
+            <h3 class="block">{{vm.employee.fullName }} Details </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">From Designatiom</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="promotion.fromDesignation" name="fromDesignation" ng-messages="promotionCreateForm.fromDesignation.$error" required />
+
+                        <div ng-messages="promotionCreateForm.fromDesignation.$error" ng-if="promotionCreateForm.fromDesignation.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">To Designatiom</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="promotion.toDesignation" name="toDesignation" ng-messages="promotionCreateForm.toDesignation.$error" required />
+
+                        <div ng-messages="promotionCreateForm.toDesignation.$error" ng-if="promotionCreateForm.toDesignation.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Promoted Date</label>
+
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup ng-model="fdate" is-open="dpOpenStatus.fdate" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default"
+                                    ng-click="setDpOpenStatus('fdate', $event)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Job Description</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="promotion.jobDescription" name="jobDescription" ng-maxlength="100" ng-messages="promotionCreateForm.jobDescription.$error" />
+
+                        <div ng-messages="promotionCreateForm.jobDescription.$error" ng-if="promotionCreateForm.jobDescription.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Remark</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="promotion.remark" name="remark" ng-maxlength="100" ng-messages="promotionCreateForm.remark.$error" />
+
+                        <div ng-messages="promotionCreateForm.remark.$error" ng-if="promotionCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

@@ -1,0 +1,55 @@
+﻿
+<div id="createFootType">
+
+    <form name="footTypeCreateForm" role="form" novalidate class="form-validation">
+
+        <div class=" margin">
+            <h3 class="block">{{vm.operation.operationPoolId }} Details details</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Foot Type</label>                  
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="footdetail.footType" name="footType" ng-messages="footTypeCreateForm.footType.$error" required />
+
+                        <div ng-messages="footTypeCreateForm.footType.$error" ng-if="footTypeCreateForm.footType.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label class="control-label">Remark</label>                  
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="footdetail.remark" name="remark" ng-maxlength="100" ng-messages="footTypeCreateForm.remark.$error"/>
+
+                        <div ng-messages="footTypeCreateForm.remark.$error" ng-if="footTypeCreateForm.remark.$touched">
+
+                            <div ng-messages-include="/App/Main/views/messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

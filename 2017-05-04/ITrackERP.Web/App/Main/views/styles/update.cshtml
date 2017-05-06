@@ -1,0 +1,164 @@
+﻿<div id="StyleDetail" ng-controller="app.views.styles.update as vm">
+    <route-loading-indicator></route-loading-indicator>
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+                <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                <a class="closebox"><i class="fa fa-times"></i></a>
+            </div>
+            Style Master
+        </div>
+
+        <div uib-collapse="isCollapsed" class="panel-body">
+            
+
+            <h3 class="block">{{vm.style.styleNo}} Details</h3>
+
+
+            <div class="panel-body">
+                <form name="styleUpdateForm" role="form" novalidate class="form-validation">
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Style No </label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.style.styleNo" name="styleNo" ng-messages="styleUpdateForm.styleNo.$error" required />
+
+                                <div ng-messages="styleUpdateForm.styleNo.$error" ng-if="styleUpdateForm.styleNo.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Article No </label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.style.articleNo" name="articleNo" ng-messages="styleUpdateForm.articleNo.$error" required />
+
+                                <div ng-messages="styleUpdateForm.articleNo.$error" ng-if="styleUpdateForm.articleNo.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Boc No </label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.style.bocNo" name="bocNo" ng-messages="styleUpdateForm.bocNo.$error" required />
+
+                                <div ng-messages="styleUpdateForm.bocNo.$error" ng-if="styleUpdateForm.bocNo.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Season</label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.style.season" name="season" ng-messages="styleUpdateForm.season.$error" required />
+
+                                <div ng-messages="styleUpdateForm.season.$error" ng-if="styleUpdateForm.season.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Item Type</label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.style.itemType" name="itemType" ng-messages="styleUpdateForm.itemType.$error" required />
+
+                                <div ng-messages="styleUpdateForm.itemType.$error" ng-if="styleUpdateForm.itemType.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Department</label>
+                            <div class="controls">
+                                <input type="text" typeahead-on-select="setLineNo($item)" ng-model="selectedLineNo" uib-typeahead="department as department.name for department in vm.departments | filter:$viewValue | limitTo:8" class="form-control" required>
+                                <span class="help-inline"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Order Type</label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.style.orderType" name="orderType" ng-messages="styleUpdateForm.orderType.$error" required />
+
+                                <div ng-messages="styleUpdateForm.orderType.$error" ng-if="styleUpdateForm.orderType.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Buyer Name</label>
+                            <div class="controls">
+                                <input type="text" typeahead-on-select="setBuyerName($item)" ng-model="selectedBuyer" ng-model="selectedBuyer" uib-typeahead="buyers as buyers.buyerName for buyers in buyers | filter:$viewValue | limitTo:3" class="form-control" required>
+                                <span class="help-inline"></span>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="row margin">
+
+                        <div class="col-md-6 col-sm-12">
+                            <label class="control-label">Remark</label>
+
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-model="vm.style.remark" name="remark" ng-messages="styleUpdateForm.remark.$error" required />
+
+                                <div ng-messages="styleUpdateForm.remark.$error" ng-if="styleUpdateForm.remark.$touched">
+
+                                    <div ng-messages-include="/App/Main/views/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="event-actions">
+                        <a class="btn btn-primary btn-sm btn-green small-icons" ng-click="vm.update()"><i class="fa fa-arrow-circle-left"></i>Save</a>
+
+                        <a class="btn btn-primary btn-sm btn-blue small-icons" ng-click="vm.backToEventsPage()"><i class="fa fa-arrow-circle-left"></i> back to style</a>
+
+                    </div>
+
+
+                </form>
+
+</div>
+        </div>
+
+    </div>
+</div>

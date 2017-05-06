@@ -1,0 +1,157 @@
+﻿
+<div id="createFile">
+
+    <form name="fileCreateForm" role="form" novalidate class="form-validation">
+
+        <div class="panel-body">
+            <div class="row margin">
+
+                <div class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Type</label>
+                    <div class="controls">
+                        <input name="itemType" type="text" ng-change="getItems('1')" typeahead-on-select="getCustomFieldsEvent('1')" ng-model="selectedItemType" uib-typeahead="custom as custom.itemType for custom in vm.customfieldsetups | filter:$viewValue | limitTo:8" class="form-control" required>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div ng-show="vm.customcaption1 != null && selectedItemType != null" class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption1}} </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.file.customField1" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin">
+
+                <div ng-show="vm.customcaption2 != null && selectedItemType != null" class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption2}} </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.file.customField2" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div ng-show="vm.customcaption3 != null && selectedItemType != null" class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption3}} </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.file.customField3" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+
+                <div ng-show="vm.customcaption4 != null && selectedItemType != null" class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption4}}</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.file.customField4" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div ng-show="vm.customcaption5 != null && selectedItemType != null" class="col-md-6 col-sm-12">
+                    <label class="control-label">{{vm.customcaption5}}</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.file.customField5" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12" ng-show="vm.customcaption6 != null && selectedItemType != null">
+                    <label class="control-label">{{vm.customcaption6}}</label>
+                    <div class="controls">
+                        <input type="text" class="form-control" ng-model="vm.file.customField6" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+
+                <div ng-show="fileCreateForm.itemType.$dirty && selectedItemType != null" class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Category 1</label>
+                    <div class="controls">
+                        <input type="text" name="category1" ng-change="getItems('2')" ng-model="selectedCategory1" uib-typeahead="category1 as category1.categoryName for category1 in vm.category1Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false" required>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin">
+                <div ng-show="fileCreateForm.category1.$dirty && selectedCategory1 != null" class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Category 2</label>
+                    <div class="controls">
+                        <input type="text" name="category2" ng-change="getItems('3')" ng-model="selectedCategory2" uib-typeahead="category2 as category2.categoryName for category2 in vm.category2Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+
+                <div ng-show="fileCreateForm.category2.$dirty && selectedCategory2 != null" class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Category 3</label>
+                    <div class="controls">
+                        <input type="text" name="category3" ng-change="getItems('4')" ng-model="selectedCategory3" uib-typeahead="category3 as category3.categoryName for category3 in vm.category3Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin">
+
+                <div ng-show="fileCreateForm.category3.$dirty && selectedCategory3 != null" class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Category 4</label>
+                    <div class="controls">
+                        <input type="text" name="category4" ng-change="getItems('5')" ng-model="selectedCategory4" uib-typeahead="category4 as category4.categoryName for category4 in vm.category4Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+
+                <div ng-show="fileCreateForm.category4.$dirty && selectedCategory4 != null" class="col-md-6 col-sm-12 margin">
+                    <label class="control-label">Category 5</label>
+                    <div class="controls">
+                        <input type="text" name="category5" ng-model="selectedCategory5" uib-typeahead="category5 as category5.categoryName for category5 in vm.category5Items | filter:$viewValue | limitTo:8" class="form-control" typeahead-editable="false">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </div>
+                             
+            <div class="row margin">
+                <div class="col-md-6 col-sm-12">
+                    <br>File:
+                    <input type="file" name="file" ngf-select ng-model="file">
+
+                    <i ng-show="fileCreateForm.file.$error.maxSize">
+                        File too large
+                        {{errorFile.size / 1000000|number:1}}MB: max 2M
+                    </i>
+                   <br>
+
+                    <span class="progress" ng-show="file.progress >= 0">
+                        <div style="width:{{file.progress}}%" ng-bind="file.progress + '%'"></div>
+                    </span>
+                    <span ng-show="file.result">Upload Successful</span>
+                    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                </div>
+            </div>
+            <hr />
+
+            <div class="event-actions">
+
+
+
+                <a class="btn btn-sm btn-green" angular-ripple ng-click="vm.save()"><i class="fa fa-arrow-circle-left"></i> Save </a>
+
+                <a class="btn btn-sm btn-blue" angular-ripple ng-click="vm.cancel()"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>

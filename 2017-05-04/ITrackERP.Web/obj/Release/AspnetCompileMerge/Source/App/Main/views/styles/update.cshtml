@@ -1,0 +1,119 @@
+﻿<div id="StyleDetail" ng-controller="app.views.styles.update as vm">
+    <route-loading-indicator></route-loading-indicator>
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+                <a class="showhide" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-chevron-up"></i></a>
+                <a class="closebox"><i class="fa fa-times"></i></a>
+            </div>
+            Style Master
+        </div>
+
+        <div uib-collapse="isCollapsed" class="panel-body">
+            
+
+            <h3 class="block">{{vm.style.styleNo}} Details</h3>
+
+
+            <div class="panel-body">
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Style No</label>
+                        <div class="controls">
+                           
+
+                            <input type="text" ng-model="vm.style.styleNo" class="form-control">
+
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Article No</label>
+                        <div class="controls">
+                           
+                            <input type="text" ng-model="vm.style.articleNo" class="form-control">
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row margin">
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Boc No</label>
+                        <div class="controls">
+                           
+                            <input type="text" ng-model="vm.style.bocNo" class="form-control">
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Season</label>
+                        <div class="controls">
+                           
+                            <input type="text" ng-model="vm.style.season" class="form-control">
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12">
+                        <label class="control-label">Item Type</label>
+                        <div class="controls">
+                            
+                            <input type="text" ng-model="vm.style.itemType" class="form-control">
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Department</label>
+                        <div class="controls">
+                            
+                            <input type="text" ng-model="vm.style.department" class="form-control">
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row margin">
+
+                    <div class="col-md-6 col-sm-12 margin">
+                        <label class="control-label">Remark</label>
+                        <div class="controls">
+                           
+                            <input type="text" ng-model="vm.style.remark" class="form-control">
+
+                            <span class="help-inline"></span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="event-actions">
+                    <a class="btn btn-primary btn-sm btn-green small-icons" ng-click="vm.update()"><i class="fa fa-arrow-circle-left"></i>Save</a>
+
+                    <a class="btn btn-primary btn-sm btn-blue small-icons" ng-click="vm.backToEventsPage()"><i class="fa fa-arrow-circle-left"></i> back to style</a>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
